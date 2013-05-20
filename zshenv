@@ -6,3 +6,5 @@ export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
 export TERM=xterm-color
 export PAGER=less
+
+fpath=($HOME/dotfiles/zsh/functions $fpath)

@@ -42,4 +42,6 @@ unsetopt check_jobs
 unsetopt hup
 setopt long_list_jobs
 setopt notify
-setopt prompt_sp
+
+### prompt
+source $HOME/dotfiles/zsh/prompt.zsh
