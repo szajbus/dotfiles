@@ -21,13 +21,19 @@ function prompt-setup {
 
 function prompt-git-info {
   if git-is-repo; then
-    local branch="$(git-current-branch)"
+    local branch="%F{cyan}$(git-current-branch)%f"
 
+    # Get current status
     while IFS=$'\n' read line; do
-      [[ "$line" == ([ACDMT][\ MT]|[ACMT]D)\ * ]] && local added='%F{green}●%f' || local dirty='%F{red}●%f'
+      [[ "$line" == ([ACDMT][\ MT]|[ACMT]D)\ * ]] && local added='%F{green}●%f'
+      [[ "$line" == [\ ACMRT]D\ * ]]              && local deleted='%F{red}●%f'
+      [[ "$line" == ?[MT]\ * ]]                   && local modified='%F{red}●%f'
+      [[ "$line" == R?\ * ]]                      && local added='%F{green}●%f'
+      [[ "$line" == (AA|DD|U?|?U)\ * ]]           && local modified='%F{red}●%f'
+      [[ "$line" == \?\?\ * ]]                    && local untracked='%F{yellow}●%f'
     done < <(git status --porcelain 2> /dev/null)
 
-    echo "[%F{cyan}${branch}%f${added}${dirty}]"
+    echo "[${branch}${deleted}${added}${modified}${untracked}]"
   fi
 }
 
