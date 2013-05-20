@@ -1,6 +1,10 @@
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:/opt/X11/bin"
-export PATH="$PATH:/usr/local/Cellar/smlnj/110.75/libexec/bin"
-export PATH="$PATH:$HOME/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin"
+
+if [[ $(uname) == "Darwin" ]]; then
+  export PATH="$PATH:/opt/X11/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin"
+fi
+
+export PATH="$HOME/bin:$PATH"
 
 export LANG="en_US.UTF-8"
 export LC_ALL="en_US.UTF-8"
@@ -8,3 +12,6 @@ export TERM=xterm-color
 export PAGER=less
 
 fpath=($HOME/dotfiles/zsh/functions $fpath)
+
+# remove duplicates from $PATH
+export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
