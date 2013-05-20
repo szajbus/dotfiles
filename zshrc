@@ -45,3 +45,6 @@ setopt notify
 
 ### prompt
 source $HOME/dotfiles/zsh/prompt.zsh
+
+### aliases
+source $HOME/dotfiles/zsh/aliases.zsh
