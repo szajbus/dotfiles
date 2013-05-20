@@ -13,5 +13,11 @@ export PAGER=less
 
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
+### rbenv
+if [ -d ~/.rbenv ]; then
+  eval "$(rbenv init -)"
+  export PATH="$HOME/.rbenv/shims:$PATH"
+fi
+
 # remove duplicates from $PATH
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
