@@ -48,3 +48,6 @@ source $HOME/dotfiles/zsh/prompt.zsh
 
 ### aliases
 source $HOME/dotfiles/zsh/aliases.zsh
+
+### secrets
+[[ -f $HOME/.secrets ]] && source $HOME/.secrets
