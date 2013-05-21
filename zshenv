@@ -11,6 +11,9 @@ export LC_ALL="en_US.UTF-8"
 export TERM=xterm-color
 export PAGER=less
 
+export EDITOR=vim
+export BUNDLER_EDITOR=mvim
+
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
 ### rbenv
