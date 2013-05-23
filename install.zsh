@@ -44,3 +44,5 @@ group-dotfiles ruby
 install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
 
+group-dotfiles input
+install-dotfiles inputrc .inputrc
