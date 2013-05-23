@@ -43,6 +43,7 @@ install-dotfiles gitignore .gitignore
 group-dotfiles ruby
 install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
+install-dotfiles powconfig .powconfig
 
 group-dotfiles input
 install-dotfiles inputrc .inputrc
