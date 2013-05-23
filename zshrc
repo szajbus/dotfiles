@@ -49,5 +49,8 @@ source $HOME/dotfiles/zsh/prompt.zsh
 ### aliases
 source $HOME/dotfiles/zsh/aliases.zsh
 
+### plugins
+source $HOME/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
