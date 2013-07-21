@@ -26,6 +26,12 @@ function install-dotfiles {
   echo "+ ${fg[green]}${argv[1]}${slash}${reset_color}"
 }
 
+function execute-script {
+  local script="${HOME}/dotfiles/install/${argv[1]}"
+  `${script} > /dev/null 2>&1`
+  echo "+ ${fg[green]}${argv[1]}${reset_color}"
+}
+
 function group-dotfiles {
   echo "[${fg[magenta]}${argv[1]}${reset_color}]"
 }
@@ -51,6 +57,8 @@ install-dotfiles inputrc .inputrc
 
 if [[ $(uname) == "Darwin" ]]; then
   group-dotfiles osx
+  execute-script osx-defaults
+  execute-script spotlight-reindex
 else;
   group-dotfiles linux
   install-dotfiles hushlogin .hushlogin
