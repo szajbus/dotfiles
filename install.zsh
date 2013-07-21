@@ -44,6 +44,7 @@ group-dotfiles ruby
 install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
 install-dotfiles powconfig .powconfig
+install-dotfiles pryrc .pryrc
 
 group-dotfiles input
 install-dotfiles inputrc .inputrc
