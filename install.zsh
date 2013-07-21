@@ -48,3 +48,10 @@ install-dotfiles pryrc .pryrc
 
 group-dotfiles input
 install-dotfiles inputrc .inputrc
+
+if [[ $(uname) == "Darwin" ]]; then
+  group-dotfiles osx
+else;
+  group-dotfiles linux
+  install-dotfiles hushlogin .hushlogin
+fi
