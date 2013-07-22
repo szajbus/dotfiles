@@ -24,7 +24,7 @@ function install-dotfiles {
     [[ ! -e $dest ]] && cp $src $dest
   else
     [[ -e $dest ]] && $backup && mv $dest{,.bak}
-    ln -fs $src $dest
+    ln -nfs $src $dest
   fi
 
   [[ -d $src ]] && local slash='/'
