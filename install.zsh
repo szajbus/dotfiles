@@ -1,17 +1,22 @@
 #!/usr/bin/env zsh
 # Usage:
-#   install.zsh [--backup]
+#   install.zsh [--backup] [--scripts]
 
 autoload -Uz colors
 colors
 
+local backup=false
+local scripts=false
+
 for arg in $argv; do
   [[ $arg == '--backup' ]] && local backup=true
+  [[ $arg == '--scripts' ]] && local scripts=true
 done
 
 function install-dotfiles {
   local src="${HOME}/dotfiles/${argv[1]}"
   local dest="${HOME}/${argv[2]}"
+  local secrets=false
 
   [[ $argv[1] == 'secrets' ]] && local secrets=true
 
@@ -19,7 +24,7 @@ function install-dotfiles {
     [[ ! -e $dest ]] && cp $src $dest
   else
     [[ -e $dest ]] && $backup && mv $dest{,.bak}
-    ln -s $src $dest
+    ln -fs $src $dest
   fi
 
   [[ -d $src ]] && local slash='/'
@@ -27,9 +32,11 @@ function install-dotfiles {
 }
 
 function execute-script {
-  local script="${HOME}/dotfiles/install/${argv[1]}"
-  `${script} > /dev/null 2>&1`
-  echo "+ ${fg[green]}${argv[1]}${reset_color}"
+  if ($scripts); then
+    local script="${HOME}/dotfiles/install/${argv[1]}"
+    # `${script} > /dev/null 2>&1`
+    echo "+ ${fg[green]}${argv[1]}${reset_color}"
+  fi
 }
 
 function group-dotfiles {
