@@ -1,17 +1,18 @@
 #!/usr/bin/env zsh
 # Usage:
-#   install.zsh [--backup] [--scripts]
+#   install.zsh
 
 autoload -Uz colors
 colors
 
-local backup=false
-local scripts=false
+function ask {
+  local answer=false
 
-for arg in $argv; do
-  [[ $arg == '--backup' ]] && local backup=true
-  [[ $arg == '--scripts' ]] && local scripts=true
-done
+  echo -n "  ${fg[yellow]}${argv[1]} (y/N): ${reset_color}"
+  read -sq && answer=true
+  $answer && echo yes || echo no
+  $answer && return 0
+}
 
 function install-dotfiles {
   local src="${HOME}/dotfiles/${argv[1]}"
@@ -39,9 +40,16 @@ function execute-script {
   fi
 }
 
+function ask-execute-script {
+  ask "install ${argv[1]}?" && execute-script $argv[1]
+}
+
 function group-dotfiles {
   echo "[${fg[magenta]}${argv[1]}${reset_color}]"
 }
+
+local backup=false
+ask "backup files?" && backup=true
 
 group-dotfiles zsh
 install-dotfiles zsh .zsh
@@ -64,8 +72,8 @@ install-dotfiles inputrc .inputrc
 
 if [[ $(uname) == "Darwin" ]]; then
   group-dotfiles osx
-  execute-script osx-defaults
-  execute-script spotlight-reindex
+  ask-execute-script osx-defaults
+  ask-execute-script spotlight-reindex
 else;
   group-dotfiles linux
   install-dotfiles hushlogin .hushlogin
