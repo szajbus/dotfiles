@@ -24,7 +24,7 @@ function install-dotfiles {
   if $secrets; then
     [[ ! -e $dest ]] && cp $src $dest
   else
-    [[ -e $dest ]] && $backup && mv $dest{,.bak}
+    [[ ! -L $dest ]] && $backup && mv -f $dest{,.bak}
     ln -nfs $src $dest
   fi
 
