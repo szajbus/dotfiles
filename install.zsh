@@ -9,7 +9,7 @@ function ask {
   local answer=false
 
   echo -n "  ${fg[yellow]}${argv[1]} (y/N): ${reset_color}"
-  read -sq && answer=true
+  read -sq && local answer=true
   $answer && echo yes || echo no
   $answer && return 0
 }
@@ -67,6 +67,9 @@ install-dotfiles pryrc .pryrc
 
 group-dotfiles input
 install-dotfiles inputrc .inputrc
+
+group-dotfiles vim
+install-dotfiles vimrc .vimrc
 
 if [[ $(uname) == "Darwin" ]]; then
   group-dotfiles osx
