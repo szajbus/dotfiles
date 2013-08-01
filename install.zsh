@@ -33,11 +33,9 @@ function install-dotfiles {
 }
 
 function execute-script {
-  if ($scripts); then
-    local script="${HOME}/dotfiles/install/${argv[1]}"
-    `${script} > /dev/null 2>&1`
-    echo "+ ${fg[green]}${argv[1]}${reset_color}"
-  fi
+  local script="${HOME}/dotfiles/install/${argv[1]}"
+  `${script} > /dev/null 2>&1`
+  echo "+ ${fg[green]}${argv[1]}${reset_color}"
 }
 
 function ask-execute-script {
