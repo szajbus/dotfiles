@@ -20,10 +20,15 @@ set hidden
 " Syntax highlighting
 syntax on
 
+" Colorscheme
+set background=dark
+colorscheme solarized
+
 " Filetype
 filetype on
 filetype plugin on
 filetype indent on
+
 
 " Search
 set incsearch        "Find the next match as we type the search
