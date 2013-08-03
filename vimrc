@@ -1,6 +1,9 @@
 " Do not revert to vi-compatible mode
 set nocompatible
 
+" Pathogen
+execute pathogen#infect()
+
 " General settings
 set number                      "Line numbers are good
 set backspace=indent,eol,start  "Allow backspace in insert mode
