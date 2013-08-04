@@ -60,6 +60,7 @@ install-dotfiles gitconfig .gitconfig
 install-dotfiles gitignore .gitignore
 
 group-dotfiles ruby
+install-dotfiles aprc .aprc
 install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
 install-dotfiles powconfig .powconfig
