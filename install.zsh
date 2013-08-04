@@ -70,6 +70,7 @@ group-dotfiles input
 install-dotfiles inputrc .inputrc
 
 group-dotfiles vim
+install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
 
 if [[ $(uname) == "Darwin" ]]; then
