@@ -1,5 +1,5 @@
 " Disable the left-hand scrollbar
-set guioptions=-L
+set guioptions-=L
 
-" Disable toolbar (MacVim)
-set guioptions=-T
+" Disable toolbar
+set guioptions-=T
