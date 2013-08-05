@@ -64,9 +64,6 @@
 [submodule "vim/bundle/jquery"]
 	path = vim/bundle/jquery
 	url = git@github.com:itspriddle/vim-jquery.git
-[submodule "vim/bundle/neocomplcache"]
-	path = vim/bundle/neocomplcache
-	url = git@github.com:Shougo/neocomplcache.vim.git
 [submodule "vim/bundle/splitjoin"]
 	path = vim/bundle/splitjoin
 	url = git@github.com:AndrewRadev/splitjoin.vim.git
