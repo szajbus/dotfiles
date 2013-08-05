@@ -77,6 +77,7 @@ install-dotfiles inputrc .inputrc
 group-dotfiles vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
+ask-execute-script build-vim-plugins
 
 if [[ $(uname) == "Darwin" ]]; then
   group-dotfiles osx
