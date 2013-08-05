@@ -46,6 +46,11 @@ function group-dotfiles {
   echo "[${fg[magenta]}${argv[1]}${reset_color}]"
 }
 
+function copy-files {
+  cp -f ${HOME}/dotfiles/${argv[1]}/* ${argv[2]}
+  echo "+ ${fg[green]}${argv[1]}${reset_color}"
+}
+
 local backup=false
 ask "backup files?" && backup=true
 
@@ -77,6 +82,7 @@ if [[ $(uname) == "Darwin" ]]; then
   group-dotfiles osx
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex
+  copy-files fonts ~/Library/fonts
 else;
   group-dotfiles linux
   install-dotfiles hushlogin .hushlogin
