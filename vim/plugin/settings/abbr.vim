@@ -2,7 +2,6 @@
 
 abbr ri! raise .inspect<esc>Bi
 abbr ry! raise .to_yaml<esc>Bi
-abbr rlb Rails.logger.banner
 abbr rld Rails.logger.debug
 abbr rli Rails.logger.info
 abbr cl! console.log( )<left><left>
