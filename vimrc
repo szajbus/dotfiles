@@ -14,6 +14,9 @@ set gcr=a:blinkon0              "Disable cursor blink
 set visualbell                  "No sounds
 set autoread                    "Reload files changed outside vim
 
+" Use utf-8 encoding
+set encoding=utf-8
+
 " Allow putting buffers to background without writing to disk
 set hidden
 
