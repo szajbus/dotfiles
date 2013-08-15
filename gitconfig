@@ -22,6 +22,7 @@
   ca = commit -am                   # commit all with message
   ci = commit                       # commit
   amend = commit --amend            # amend your last commit
+  append = commit --amend -C HEAD   # append changes to previous commit
 
   # checkout
   co = checkout                     # checkout
