@@ -14,11 +14,9 @@
   a = add                           # add
 
   # branch
-  b = branch -v                     # branch (verbose)
-  br = branch -v                    # branch (verbose)
+  br = branch                       # branch
 
   # commit
-  c = commit -m                     # commit with message
   ca = commit -am                   # commit all with message
   ci = commit                       # commit
   amend = commit --amend            # amend your last commit
@@ -29,7 +27,7 @@
   nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
 
   # cherry-pick
-  cp = cherry-pick -x               # grab a change from a branch
+  cp = cherry-pick                  # grab a change from a branch
 
   # diff
   d = diff                          # diff unstaged changes
