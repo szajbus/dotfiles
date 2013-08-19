@@ -4,6 +4,7 @@ setopt pushd_ignore_dups
 setopt pushd_silent
 
 ### completion
+fpath=($HOME/dotfiles/zsh/completion $fpath)
 autoload -Uz compinit
 compinit -i
 
