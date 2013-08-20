@@ -5,6 +5,7 @@ alias ll="ls -GFalh"
 alias ls="ls -GF"
 
 # git
+alias git="hub"
 alias g="git"
 alias gd="git diff"
 alias gf="git fetch"
