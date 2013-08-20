@@ -74,6 +74,9 @@ install-dotfiles pryrc .pryrc
 group-dotfiles input
 install-dotfiles inputrc .inputrc
 
+group-dotfiles ack
+install-dotfiles ackrc .ackrc
+
 group-dotfiles vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc

@@ -1,0 +1,6 @@
+--type-add=ruby=.erb,.haml,.slim,.ru,.lock
+--type-add=css=scss
+--type-add=coffeescript=.coffee
+--type-add=coffee=.coffee
+--type-add=js=.coffee
+
