@@ -55,6 +55,7 @@
   r = remote -v                     # show remotes (verbose)
 
   # reset
+  hard = reset --hard               # reset all changes
   unstage = reset HEAD              # remove files from index (tracking)
   undo = reset --soft HEAD^         # go back before last commit, with files in uncommitted state
   filelog = log -u                  # show changes to a file
