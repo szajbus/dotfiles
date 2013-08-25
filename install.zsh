@@ -54,6 +54,9 @@ function copy-files {
 local backup=false
 ask "backup files?" && backup=true
 
+group-dotfiles dotfiles
+execute-script update-submodules
+
 group-dotfiles zsh
 install-dotfiles zsh .zsh
 install-dotfiles zshenv .zshenv
