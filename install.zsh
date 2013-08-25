@@ -42,7 +42,7 @@ function ask-execute-script {
   ask "install ${argv[1]}?" && execute-script $argv[1]
 }
 
-function group-dotfiles {
+function group {
   echo "[${fg[magenta]}${argv[1]}${reset_color}]"
 }
 
@@ -54,43 +54,43 @@ function copy-files {
 local backup=false
 ask "backup files?" && backup=true
 
-group-dotfiles dotfiles
+group dotfiles
 execute-script update-submodules
 
-group-dotfiles zsh
+group zsh
 install-dotfiles zsh .zsh
 install-dotfiles zshenv .zshenv
 install-dotfiles zshrc .zshrc
 install-dotfiles secrets .secrets
 
-group-dotfiles git
+group git
 install-dotfiles gitconfig .gitconfig
 install-dotfiles gitignore .gitignore
 
-group-dotfiles ruby
+group ruby
 install-dotfiles aprc .aprc
 install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
 install-dotfiles powconfig .powconfig
 install-dotfiles pryrc .pryrc
 
-group-dotfiles input
+group input
 install-dotfiles inputrc .inputrc
 
-group-dotfiles ack
+group ack
 install-dotfiles ackrc .ackrc
 
-group-dotfiles vim
+group vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
 ask-execute-script build-vim-plugins
 
 if [[ $(uname) == "Darwin" ]]; then
-  group-dotfiles osx
+  group osx
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex
   copy-files fonts ~/Library/fonts
 else;
-  group-dotfiles linux
+  group linux
   install-dotfiles hushlogin .hushlogin
 fi
