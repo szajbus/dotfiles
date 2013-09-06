@@ -15,6 +15,6 @@ alias gs="git status"
 
 # dev
 alias dt="tail -F -n 0 log/development.log"
-alias irb="pry"
+which pry > /dev/null && alias irb="pry"
 alias jsonp="ruby -r json -e 'puts JSON.pretty_generate(JSON.parse(readlines.join))'"
 alias rt="touch tmp/restart.txt"
