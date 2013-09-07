@@ -18,6 +18,10 @@ fpath=($HOME/dotfiles/zsh/functions $fpath)
 
 ### rbenv
 if [ -d ~/.rbenv ]; then
+  if [ -d ~/.rbenv ]; then
+    export PATH="$HOME/.rbenv/bin:$PATH"
+  fi
+
   eval "$(rbenv init -)"
   export PATH="$HOME/.rbenv/shims:$PATH"
 fi
