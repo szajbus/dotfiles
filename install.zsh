@@ -73,6 +73,7 @@ install-dotfiles gemrc .gemrc
 install-dotfiles irbrc .irbrc
 install-dotfiles powconfig .powconfig
 install-dotfiles pryrc .pryrc
+ask-execute-script rbenv
 
 group input
 install-dotfiles inputrc .inputrc
