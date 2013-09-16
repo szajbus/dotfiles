@@ -10,6 +10,7 @@ alias g="git"
 alias gd="git diff"
 alias gf="git fetch"
 alias gp="git push"
+alias gpf="git push --force"
 alias gpl="git pull"
 alias gs="git status"
 
