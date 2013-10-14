@@ -89,6 +89,10 @@
   whitespace = nowarn
 [branch]
   autosetupmerge = true
+[branch "master"]
+	mergeoptions = --no-ff
+[branch "staging"]
+	mergeoptions = --no-ff
 [push]
   # 'git push' will push the current branch to its tracking branch
   # the usual default is to push all branches
