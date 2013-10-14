@@ -88,7 +88,7 @@
 [apply]
   whitespace = nowarn
 [branch]
-  autosetupmerge = true
+  autosetuprebase = always
 [branch "master"]
 	mergeoptions = --no-ff
 [branch "staging"]
