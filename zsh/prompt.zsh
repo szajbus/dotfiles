@@ -9,13 +9,18 @@ function prompt-setup {
   setopt local_options
   unsetopt xtrace ksh_arrays
 
-  local user='%F{magenta}%n%f@%F{yellow}%m%f'
   local pwd='%F{green}%~%f'
   local git_info='$(prompt-git-info)'
   local ruby_info='$(prompt-ruby-info)'
   local user_indicator='%(!.#.$)'
 
-  PROMPT="${user} ${pwd} ${git_info}${user_indicator} "
+  if [[ $(uname) == "Darwin" ]]; then
+    local prefix="⌘"
+  else;
+    local prefix='%F{magenta}%n%f@%F{yellow}%m%f'
+  fi
+
+  PROMPT="${prefix} ${pwd} ${git_info}${user_indicator} "
   RPROMPT="${ruby_info}"
 }
 
