@@ -38,7 +38,11 @@ function prompt-git-info {
 }
 
 function prompt-ruby-info {
-  echo "[%F{blue}$(ruby-version)%f]"
+  local ruby=$(ruby-version)
+
+  if [[ ! -z $ruby ]]; then
+    echo "[%F{blue}$ruby%f]"
+  fi
 }
 
 prompt-setup "$@"
