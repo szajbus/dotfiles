@@ -91,9 +91,9 @@
   autosetupmerge = true
   autosetuprebase = always
 [branch "master"]
-	mergeoptions = --no-ff
+	mergeoptions = --no-ff --no-edit
 [branch "staging"]
-	mergeoptions = --no-ff
+	mergeoptions = --no-ff --no-edit
 [pull]
   rebase = true
 [push]
