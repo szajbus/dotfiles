@@ -19,3 +19,6 @@ alias dt="tail -F -n 0 log/development.log"
 which pry > /dev/null && alias irb="pry"
 alias jsonp="ruby -r json -e 'puts JSON.pretty_generate(JSON.parse(readlines.join))'"
 alias rt="touch tmp/restart.txt"
+
+# hussar
+alias hsr="~/dev/hussar-docker/bin/hsr"
