@@ -3,10 +3,10 @@ if ! git-is-repo; then
   return 1
 fi
 
-local ref="$(git symbolic-ref HEAD 2> /dev/null)"
+local ref="$(git symbolic-ref --short HEAD 2> /dev/null)"
 
 if [[ -n "$ref" ]]; then
-  print "${ref#refs/heads/}"
+  print $ref
   return 0
 else
   return 1
