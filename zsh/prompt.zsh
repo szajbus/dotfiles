@@ -15,12 +15,12 @@ function prompt-setup {
   local user_indicator='%(!.#.$)'
 
   if [[ $(uname) == "Darwin" ]]; then
-    local prefix="⌘"
+    local prefix=""
   else;
     local prefix='%F{magenta}%n%f@%F{yellow}%m%f'
   fi
 
-  PROMPT="${prefix} ${pwd} ${git_info}${user_indicator} "
+  PROMPT="${prefix}${pwd} ${git_info}${user_indicator} "
   RPROMPT="${ruby_info}"
 }
 
