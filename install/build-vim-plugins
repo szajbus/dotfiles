@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-./vim/bundle/YouCompleteMe/install.sh
+cd vim/bundle/YouCompleteMe && ./install.sh
