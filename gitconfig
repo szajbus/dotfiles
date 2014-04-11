@@ -92,6 +92,8 @@
   autosetuprebase = always
 [branch "master"]
 	mergeoptions = --no-ff --no-edit
+[branch "next"]
+	mergeoptions = --no-ff --no-edit
 [branch "staging"]
 	mergeoptions = --no-ff --no-edit
 [pull]
@@ -116,3 +118,5 @@
   enabled = true
 [url "git@github.com:"]
   insteadOf = "gh:"
+[url "git@github.com:monterail/"]
+  insteadOf = "ghm:"
