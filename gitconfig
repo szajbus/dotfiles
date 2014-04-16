@@ -10,8 +10,10 @@
   old = red bold
   new = green bold
 [alias]
-  # add
+  # add / remove
   a = add                           # add
+  remove = add -u                   # remove
+  r = add -u                        # remove
 
   # branch
   br = branch                       # branch
@@ -53,7 +55,7 @@
   rs = rebase --skip                # skip rebase
 
   # remote
-  r = remote -v                     # show remotes (verbose)
+  remote = remote -v                     # show remotes (verbose)
 
   # reset
   hard = reset --hard               # reset all changes
