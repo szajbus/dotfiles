@@ -24,7 +24,7 @@ set hidden
 syntax on
 
 " Colorscheme
-set background=dark
+set background=light
 colorscheme solarized
 
 " Filetype
