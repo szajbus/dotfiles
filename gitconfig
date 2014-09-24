@@ -122,3 +122,5 @@
   insteadOf = "gh:"
 [url "git@github.com:monterail/"]
   insteadOf = "ghm:"
+[url "git@heroku.com:"]
+  insteadOf = "heroku:"
