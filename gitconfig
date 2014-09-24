@@ -120,6 +120,8 @@
   enabled = true
 [url "git@github.com:"]
   insteadOf = "gh:"
+  pushInsteadOf = "git://github.com/"
+  pushInsteadOf = "https://github.com/"
 [url "git@github.com:monterail/"]
   insteadOf = "ghm:"
 [url "git@heroku.com:"]
