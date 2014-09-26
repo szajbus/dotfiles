@@ -5,4 +5,4 @@
 --type-add=css=scss
 --type-add=js=.coffee
 
---ignore-dir=.git,.svn,log,app/assets/images
+--ignore-dir=.git,.svn,log,app/assets/images,tmp
