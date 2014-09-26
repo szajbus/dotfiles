@@ -1,7 +1,7 @@
 --type-set=coffeescript=.coffee
 --type-set=coffee=.coffee
 
---type-add=ruby=.erb,.haml,.slim,.ru,.lock
+--type-add=ruby=.erb,.haml,.slim,.ru,.lock,.jbuilder
 --type-add=css=scss
 --type-add=js=.coffee
 
