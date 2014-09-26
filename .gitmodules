@@ -97,3 +97,6 @@
 [submodule "vim/bundle/elixir"]
 	path = vim/bundle/elixir
 	url = https://github.com/elixir-lang/vim-elixir.git
+[submodule "vim/bundle/switch"]
+	path = vim/bundle/switch
+	url = https://github.com/AndrewRadev/switch.vim
