@@ -23,6 +23,7 @@
   ci = commit                       # commit
   amend = commit --amend            # amend your last commit
   append = commit --amend -C HEAD   # append changes to previous commit
+  no-review = !sh -c 'git commit -m $\"$1\n[no review]\"' - # commit with no review flag added to message
 
   # checkout
   co = checkout                     # checkout
