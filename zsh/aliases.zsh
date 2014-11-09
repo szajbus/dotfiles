@@ -20,7 +20,6 @@ which pry > /dev/null && alias irb="pry"
 alias jsonp="ruby -r json -e 'puts JSON.pretty_generate(JSON.parse(readlines.join))'"
 alias rt="touch tmp/restart.txt"
 alias rake="bundle exec rake"
-alias rails="bundle exec rails"
 
 # hussar
 alias hsr="~/dev/hussar-docker/bin/hsr"
