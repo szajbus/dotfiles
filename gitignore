@@ -17,3 +17,4 @@ Session.vim
 # Ruby
 .rvmrc
 .ruby-version
+.rbenv-vars
