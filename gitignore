@@ -18,3 +18,4 @@ Session.vim
 .rvmrc
 .ruby-version
 .rbenv-vars
+.capistrano
