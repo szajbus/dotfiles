@@ -2,6 +2,7 @@ export PATH="/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/u
 
 if [[ $(uname) == "Darwin" ]]; then
   export PATH="$PATH:/opt/X11/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin"
+  export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools"
 fi
 
 export PATH="$HOME/bin:$PATH"
