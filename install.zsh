@@ -81,6 +81,9 @@ install-dotfiles inputrc .inputrc
 group ack
 install-dotfiles ackrc .ackrc
 
+group tmux
+install-dotfiles tmux.conf .tmux.conf
+
 group vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
