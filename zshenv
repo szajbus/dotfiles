@@ -16,6 +16,8 @@ export EDITOR=vim
 export VISUAL=atom
 export BUNDLER_EDITOR="$VISUAL"
 
+export KEYTIMEOUT=1
+
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
 ### rbenv
