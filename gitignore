@@ -19,3 +19,6 @@ Session.vim
 .ruby-version
 .rbenv-vars
 .capistrano
+
+# Node
+npm-debug.log*
