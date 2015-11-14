@@ -13,7 +13,8 @@ export TERM=xterm-color
 export PAGER=less
 
 export EDITOR=vim
-export BUNDLER_EDITOR=atom
+export VISUAL=atom
+export BUNDLER_EDITOR="$VISUAL"
 
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
