@@ -5,7 +5,7 @@ alias ll="ls -GFalh"
 alias ls="ls -GF"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
-alias v="$VISUAL"
+alias v="$VISUAL ."
 
 # git
 which hub > /dev/null && alias git="hub"
