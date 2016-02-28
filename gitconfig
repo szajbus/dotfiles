@@ -129,5 +129,9 @@
   pushInsteadOf = "https://github.com/"
 [url "git@github.com:monterail/"]
   insteadOf = "ghm:"
+[url "git@bitbucket.org:"]
+  insteadOf = "bb:"
+  pushInsteadOf = "git://bitbucket.org/"
+  pushInsteadOf = "https://bitbucket.org/"
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
