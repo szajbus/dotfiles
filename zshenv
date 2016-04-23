@@ -15,6 +15,7 @@ export PAGER=less
 export EDITOR=vim
 export VISUAL=atom
 export BUNDLER_EDITOR="$VISUAL"
+export MARKDOWN_EDITOR="$HOME/Applications/MacDown.app"
 
 export KEYTIMEOUT=1
 
@@ -25,6 +26,8 @@ if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+export PATH="$HOME/dotfiles/bin:$PATH"
 
 # remove duplicates from $PATH
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
