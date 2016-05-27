@@ -11,7 +11,6 @@ function prompt-setup {
 
   local pwd='%F{green}%~%f'
   local git_info='$(prompt-git-info)'
-  local ruby_info='$(prompt-ruby-info)'
   local user_indicator='%(!.#.$)'
 
   if [[ $(uname) == "Darwin" ]]; then
@@ -21,7 +20,6 @@ function prompt-setup {
   fi
 
   PROMPT="${prefix}${pwd} ${git_info}${user_indicator} "
-  RPROMPT="${ruby_info}"
 }
 
 function prompt-git-info {
@@ -39,14 +37,6 @@ function prompt-git-info {
     done < <(git status --porcelain 2> /dev/null)
 
     echo "[${branch}${deleted}${added}${modified}${untracked}]"
-  fi
-}
-
-function prompt-ruby-info {
-  local ruby=$(ruby-version)
-
-  if [[ ! -z $ruby ]]; then
-    echo "[%F{blue}$ruby%f]"
   fi
 }
 
