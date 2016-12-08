@@ -53,7 +53,8 @@
 
   # push
   ps = push                         # push
-  pf = push --force                 # push forcefully
+  pf = push --force-with-lease      # try pushing forcefully
+  pff = push --force                # push forcefully
 
   # rebase
   rc = rebase --continue            # continue rebase
