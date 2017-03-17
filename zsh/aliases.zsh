@@ -27,3 +27,6 @@ alias rake="bundle exec rake"
 
 # hussar
 alias hsr="~/dev/hussar-docker/bin/hsr"
+
+# docker-machine
+alias dm="eval \"$(docker-machine env default 2> /dev/null)\""
