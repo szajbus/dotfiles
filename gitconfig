@@ -136,3 +136,11 @@
   pushInsteadOf = "https://bitbucket.org/"
 [url "git@heroku.com:"]
   insteadOf = "heroku:"
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
