@@ -59,3 +59,9 @@ source $HOME/dotfiles/zsh/key_bindings.zsh
 
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
+
+### rbenv
+if [ -d ~/.rbenv ]; then
+  export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
