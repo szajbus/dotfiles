@@ -63,6 +63,11 @@ source $HOME/dotfiles/zsh/key_bindings.zsh
 ### custom
 export ES="http://localhost:9200"
 
+### tmux
+if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
+  tmux attach-session -t $USER || tmux new-session -s $USER
+fi
+
 ### rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
