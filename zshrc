@@ -60,6 +60,9 @@ source $HOME/dotfiles/zsh/key_bindings.zsh
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
 
+### custom
+export ES="http://localhost:9200"
+
 ### rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
