@@ -13,9 +13,12 @@ export TERM=xterm-color
 export PAGER=less
 
 export EDITOR=vim
-export VISUAL=atom
-export BUNDLER_EDITOR="$VISUAL"
-export MARKDOWN_EDITOR="$HOME/Applications/MacDown.app"
+
+if [ "$SSH_CONNECTION" = "" ]; then
+  export VISUAL=atom
+  export BUNDLER_EDITOR="$VISUAL"
+  export MARKDOWN_EDITOR="$HOME/Applications/MacDown.app"
+fi
 
 export KEYTIMEOUT=1
 
