@@ -9,7 +9,7 @@ autoload -Uz compinit
 compinit -i
 
 zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh/cache
+zstyle ':completion:*' cache-path ~/.zsh-cache
 
 setopt always_to_end
 setopt auto_menu
