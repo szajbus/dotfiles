@@ -20,3 +20,5 @@ for keycode in '[' '0'; do
   bindkey "^[${keycode}B" history-substring-search-down
 done
 unset keycode
+
+bindkey '^R' history-incremental-search-backward
