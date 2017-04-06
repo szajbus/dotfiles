@@ -11,4 +11,4 @@ format=$(cat <<-END
 \n
 END)
 
-curl --write-out "$format" --silent --output /dev/null $1
+curl --write-out "$format" --silent --output /dev/null "$@"
