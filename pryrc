@@ -32,6 +32,7 @@ begin
 
   # If you want awesome_print without automatic pagination, use the line below
   # Pry.config.print = proc { |output, value| output.puts value.ai }
+rescue LoadError
 end
 
 # === CUSTOM COMMANDS ===
