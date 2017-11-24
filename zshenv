@@ -13,11 +13,15 @@ export TERM=xterm-color
 export PAGER=less
 
 export EDITOR=vim
+export MARKDOWN_EDITOR="$EDITOR"
 
 if [ "$SSH_CONNECTION" = "" ]; then
   export VISUAL=atom
   export BUNDLER_EDITOR="$VISUAL"
-  export MARKDOWN_EDITOR="$HOME/Applications/MacDown.app"
+fi
+
+if [[ $(uname) == "Darwin" ]]; then
+  export MARKDOWN_EDITOR="$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown"
 fi
 
 export KEYTIMEOUT=1

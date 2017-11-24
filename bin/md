@@ -2,4 +2,4 @@
 if [ ! -f $1 ]; then
   touch $1;
 fi
-open -a $MARKDOWN_EDITOR $1
+$MARKDOWN_EDITOR $1
