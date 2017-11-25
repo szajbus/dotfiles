@@ -1,2 +1,7 @@
-mkdir -p ~/logbook
-md ~/logbook/$(date '+%Y-%m-%d').md
+local p="${HOME}/logbook"
+local f=$@
+[[ -z $f ]] && local f=$(date '+%Y-%m-%d')
+local f=$f.md
+
+mkdir -p $p
+md $p/$f
