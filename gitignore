@@ -2,7 +2,8 @@
 .DS_Store
 .AppleDouble
 .LSOverride
-Icon
+
+#Icon
 ._*
 .Spotlight-V100
 .Trashes
@@ -19,6 +20,7 @@ Session.vim
 .ruby-version
 .rbenv-vars
 .capistrano
+.byebug_history
 
 # Node
 npm-debug.log*
