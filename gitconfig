@@ -24,11 +24,6 @@
   amend = commit --amend            # amend your last commit
   append = commit --amend -C HEAD   # append changes to previous commit
 
-  # git guidelines
-  ci-no-review = !sh -c 'git commit -m $\"$1\n[no review]\"' - # commit with no review flag added to message
-  ci-wip = !sh -c 'git commit -m \"[wip] $1\"' - # commit as work in progress
-  ci-fix = !sh -c 'git commit -m \"[fix] $1\"' - # commit as fix
-
   # checkout
   co = checkout                     # checkout
   nb = checkout -b                  # create and switch to a new branch (mnemonic: "git new branch branchname...")
