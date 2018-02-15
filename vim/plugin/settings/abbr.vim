@@ -12,4 +12,3 @@ iabbr rli Rails.logger.info
 iabbr cl! console.log()<esc>ha<C-R>=Eatchar('\s')<cr>
 iabbr <%= <%= %><esc>3ha
 iabbr <% <% %><esc>3ha
-iabbr 18 I18n.t('')<esc>2ha<C-R>=Eatchar('\s')<cr>
