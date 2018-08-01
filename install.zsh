@@ -87,6 +87,7 @@ install-dotfiles tmux.conf .tmux.conf
 group vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
+install-dotfiles vimrc.tiny .vimrc.tiny
 
 if [[ $(uname) == "Darwin" ]]; then
   group osx

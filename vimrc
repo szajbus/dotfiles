@@ -1,86 +1,14 @@
-" Do not revert to vi-compatible mode
-set nocompatible
+" Source tiny config
+source ~/.vimrc.tiny
 
 " Pathogen
 execute pathogen#infect()
 
 " General settings
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete commands on the last line
-set showmode                    "Show current mode on the last line
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
-
-" Use utf-8 encoding
-set encoding=utf-8
-
-" Allow putting buffers to background without writing to disk
-set hidden
+set history=1000 "Store lots of :cmdline history
 
 " Syntax highlighting
 syntax on
-
-" Colorscheme
-set background=light
-colorscheme solarized
-
-" Filetype
-filetype on
-filetype plugin on
-filetype indent on
-
-" Search
-set incsearch        "Find the next match as we type the search
-set hlsearch         "Highlight searches by default
-set viminfo='100,f1  "Save up to 100 marks, enable capital marks
-
-" Indentation
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
-set expandtab
-
-" Whitespace
-set list listchars=tab:\ \ ,trail:·  " Display tabs and trailing spaces visually
-
-" Wrapping lines
-set wrap
-set linebreak
-
-" Folding
-set foldmethod=indent   "Fold based on indent
-set foldnestmax=3       "Deepest fold is 3 levels
-set nofoldenable        "Don't fold by default
-
-" Completion
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
-
-" Scrolling
-set scrolloff=8         "Start scrolling when 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
-
-" Swap files
-set noswapfile
-set nobackup
-set nowritebackup
 
 if has('persistent_undo')
   " Keep undo history across sessions

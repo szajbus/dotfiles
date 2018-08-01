@@ -13,6 +13,7 @@ export TERM=xterm-color
 export PAGER=less
 
 export EDITOR=vim
+export GIT_EDITOR="vim -u ~/.vimrc.tiny"
 export MARKDOWN_EDITOR="$EDITOR"
 
 if [ "$SSH_CONNECTION" = "" ]; then
