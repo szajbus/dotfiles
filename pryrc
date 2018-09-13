@@ -87,3 +87,6 @@ end
 
 # === PRY THEME ===
 Pry.config.theme = "solarized"
+
+# === PRY OPTIONS ===
+Pry.config.pager = false
