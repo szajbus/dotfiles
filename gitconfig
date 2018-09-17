@@ -17,6 +17,7 @@
 
   # branch
   br = branch                       # branch
+  branch-name = "!git rev-parse --abbrev-ref HEAD" # print current branch name
 
   # commit
   ca = commit -am                   # commit all with message
@@ -50,6 +51,7 @@
   ps = push                         # push
   pf = push --force-with-lease      # try pushing forcefully
   pff = push --force                # push forcefully
+  publish = "!git push -u origin $(git branch-name)"  # publish branch to origin
 
   # rebase
   rc = rebase --continue            # continue rebase
