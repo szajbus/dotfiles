@@ -51,7 +51,7 @@
   ps = push                         # push
   pf = push --force-with-lease      # try pushing forcefully
   pff = push --force                # push forcefully
-  publish = "!git push -u origin $(git branch-name)"  # publish branch to origin
+  publish = "!f() { git push -u ${1-origin} $(git branch-name); }; f"  # publish branch to remote
 
   # rebase
   rc = rebase --continue            # continue rebase
