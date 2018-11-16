@@ -82,3 +82,7 @@ fi
 
 ### kerl
 [[ -f $HOME/kerl/20.3/activate ]] && source "$HOME/kerl/20.3/activate"
+
+### Google Cloud SDK
+[[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/google-cloud-sdk/path.zsh.inc"
+[[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/google-cloud-sdk/completion.zsh.inc"
