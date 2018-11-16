@@ -78,4 +78,7 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### kiex
-test -s "$HOME/.kiex/scripts/kiex" && source "$HOME/.kiex/scripts/kiex"
+[[ -f $HOME/.kiex/scripts/kiex ]] && source "$HOME/.kiex/scripts/kiex"
+
+### kerl
+[[ -f $HOME/kerl/20.3/activate ]] && source "$HOME/kerl/20.3/activate"
