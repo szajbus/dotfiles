@@ -35,6 +35,11 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+### mix
+if [ -d ~/.mix ]; then
+  export PATH="$HOME/.mix/escripts:$PATH"
+fi
+
 export PATH="$HOME/dotfiles/bin:$PATH"
 
 # remove duplicates from $PATH
