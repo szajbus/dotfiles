@@ -1,0 +1,110 @@
+#!/usr/bin/env bash
+
+function usage() {
+  me=$(basename $0)
+  cat << EOF
+$me [command] [args]
+
+Commands:
+  index list [pattern]   - list all indices or matching optional pattern
+  index delete [pattern] - delete indices matching pattern
+EOF
+}
+
+function index_list() {
+  format="long"
+  pattern="*"
+
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+      --format)
+        format="$2"
+        shift
+        shift
+        ;;
+      *)
+        pattern="$1"
+        shift
+    esac
+  done
+
+  cmd="$CURL $CLUSTER/_cat/indices/$pattern"
+
+  case $format in
+    short)
+      cmd="$cmd?v&s=index&h=index"
+      ;;
+    *)
+      cmd="$cmd?v&s=index&h=index,health,status,docs.count,store.size"
+  esac
+
+  $cmd
+}
+
+function index_delete() {
+  pattern="$1"
+
+  if [[ -z $pattern ]]; then
+    echo "pattern argument is required"
+    exit 1
+  fi
+
+  cmd="$CURL $CLUSTER/_cat/indices/$pattern?v&h=index"
+  indices=`$cmd | tail -n +2`
+
+  for index in $indices; do
+    echo -n "Delete $index... "
+    cmd="$CURL -X DELETE $CLUSTER/$index"
+    result=`$cmd`
+
+    if [ "$result" == '{"acknowledged":true}' ]; then
+      echo "OK"
+    else
+      echo "Error ($result)"
+    fi
+  done
+}
+
+CURL="curl --silent"
+CLUSTER="http://localhost:9200"
+POSITIONAL=()
+
+while [[ $# -gt 0 ]]; do
+  key="$1"
+
+  case $key in
+    help)
+      usage
+      exit 0
+      ;;
+    index)
+      MODULE="$1"
+      COMMAND="$2"
+      shift
+      shift
+      ;;
+    --cluster)
+      CLUSTER="$2"
+      shift
+      shift
+      ;;
+    *)
+      POSITIONAL+=("$1")
+      shift
+    ;;
+  esac
+done
+
+set -- "${POSITIONAL[@]}"
+
+case $MODULE in
+  index)
+    func="${MODULE}_${COMMAND}"
+    $func "${POSITIONAL[@]}"
+    ;;
+  *)
+    usage
+    exit 0
+esac
