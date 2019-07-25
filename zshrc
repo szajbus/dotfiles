@@ -81,7 +81,7 @@ fi
 [[ -f $HOME/.kiex/scripts/kiex ]] && source "$HOME/.kiex/scripts/kiex"
 
 ### kerl
-[[ -f $HOME/kerl/20.3/activate ]] && source "$HOME/kerl/20.3/activate"
+[[ -f $HOME/kerl/21.0/activate ]] && source "$HOME/kerl/21.0/activate"
 
 ### Google Cloud SDK
 [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/google-cloud-sdk/path.zsh.inc"
