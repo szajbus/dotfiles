@@ -24,6 +24,7 @@ which pry > /dev/null && alias irb="pry"
 alias jsonp="ruby -r json -e 'puts JSON.pretty_generate(JSON.parse(readlines.join))'"
 alias rt="touch tmp/restart.txt"
 alias rake="bundle exec rake"
+alias iex-clean="iex --dot-iex \"\""
 
 # docker-machine
 alias dm="eval \"$(docker-machine env default 2> /dev/null)\""
