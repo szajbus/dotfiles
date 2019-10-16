@@ -26,6 +26,7 @@ alias rt="touch tmp/restart.txt"
 alias rake="bundle exec rake"
 alias cap="bundle exec cap"
 alias iex-clean="iex --dot-iex \"\""
+alias mtw="mix test.watch"
 
 # docker-machine
 alias dm="eval \"$(docker-machine env default 2> /dev/null)\""
