@@ -30,3 +30,7 @@ alias mtw="mix test.watch"
 
 # docker-machine
 alias dm="eval \"$(docker-machine env default 2> /dev/null)\""
+
+# kill all BEAM processes except RabbitMQ and ElixirLS
+alias kill-beams="ps aux | grep '[b]eam' | grep -v 'rabbitmq\|ElixirLS' | awk '{print \$2}' | xargs -t kill"
+alias kill-beams-9="ps aux | grep '[b]eam' | grep -v 'rabbitmq\|ElixirLS' | awk '{print \$2}' | xargs -t kill -9"
