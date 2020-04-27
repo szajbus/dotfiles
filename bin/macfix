@@ -4,6 +4,8 @@ Usage:
   macfix {dock | audio}
 """
 
+key=$1
+
 case $key in
   dock)
     echo "Restarting dock..."
@@ -12,7 +14,7 @@ case $key in
     ;;
   audio)
     echo "Restarting audio services..."
-    ps ax | grep 'coreaudio[d]' | awk '{print $1}' | kill -9
+    ps ax | grep 'coreaudio[d]' | awk '{print $1}' | sudo xargs kill -9
     ;;
   *)
     echo $USAGE
