@@ -78,10 +78,13 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### kiex
-[[ -f $HOME/.kiex/scripts/kiex ]] && source "$HOME/.kiex/scripts/kiex"
+#[[ -f $HOME/.kiex/scripts/kiex ]] && source "$HOME/.kiex/scripts/kiex"
 
 ### kerl
-[[ -f $HOME/kerl/21.0/activate ]] && source "$HOME/kerl/21.0/activate"
+#[[ -f $HOME/kerl/21.0/activate ]] && source "$HOME/kerl/21.0/activate"
+
+### asdf
+[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
 
 ### Google Cloud SDK
 [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/google-cloud-sdk/path.zsh.inc"
