@@ -91,6 +91,7 @@ install-dotfiles vimrc.tiny .vimrc.tiny
 
 if [[ $(uname) == "Darwin" ]]; then
   group osx
+  ask-execute-script homebrew
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex
   copy-files fonts ~/Library/fonts
