@@ -24,3 +24,6 @@ Session.vim
 
 # Node
 npm-debug.log*
+
+# ElixirLS (vs code extension)
+.elixir_ls
