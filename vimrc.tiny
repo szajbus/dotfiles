@@ -21,8 +21,12 @@ set hidden
 syntax off
 
 " Colorscheme
-set background=light
-colorscheme solarized
+if $DARK_MODE
+  set background=dark
+else
+  set background=light
+  colorscheme solarized
+endif
 
 " Filetype
 filetype on

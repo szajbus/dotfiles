@@ -23,6 +23,8 @@ fi
 
 if [[ $(uname) == "Darwin" ]]; then
   export MARKDOWN_EDITOR="$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown"
+
+  defaults read -g AppleInterfaceStyle | grep -v dark &> /dev/null && export DARK_MODE=1
 fi
 
 export KEYTIMEOUT=1
