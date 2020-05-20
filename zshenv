@@ -17,7 +17,7 @@ export GIT_EDITOR="vim -u ~/.vimrc.tiny"
 export MARKDOWN_EDITOR="$EDITOR"
 
 if [ "$SSH_CONNECTION" = "" ]; then
-  export VISUAL=atom
+  export VISUAL=code
   export BUNDLER_EDITOR="$VISUAL"
 fi
 
