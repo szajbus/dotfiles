@@ -1,0 +1,75 @@
+{
+    "editor.tabSize": 2,
+    "editor.renderWhitespace": "none",
+    "editor.fontSize": 18,
+    "files.insertFinalNewline": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "editor.minimap.enabled": false,
+    "editor.formatOnSave": true,
+    "editor.wordWrap": "on",
+    "diffEditor.renderSideBySide": false,
+    "explorer.confirmDragAndDrop": false,
+    "[elixir]": {
+        "editor.defaultFormatter": "elixir-lsp.elixir-ls"
+    },
+    "files.saveConflictResolution": "overwriteFileOnDisk",
+    "diffEditor.ignoreTrimWhitespace": false,
+    "extensions.ignoreRecommendations": false,
+    "elixirLS.dialyzerFormat": "dialyxir_long",
+    "workbench.activityBar.visible": false,
+    "workbench.tree.indent": 16,
+    "workbench.tree.renderIndentGuides": "none",
+    "editor.cursorWidth": 3,
+    "editor.find.seedSearchStringFromSelection": false,
+    "workbench.quickOpen.closeOnFocusLost": false,
+    "workbench.quickOpen.preserveInput": true,
+    "explorer.decorations.colors": false,
+    "search.showLineNumbers": true,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.colorCustomizations": {
+        "[Monokai Dimmed]": {
+            "foreground": "#a7a7a7",
+            "activityBar.foreground": "#a7a7a7",
+            "editor.foreground": "#a7a7a7",
+            "tab.inactiveBackground": "#282828",
+            "tab.inactiveForeground": "#b8b8b8",
+            "tab.activeForeground": "#b8b8b8",
+            "badge.background": "#333",
+            "badge.foreground": "#a7a7a7",
+            "editorLineNumber.foreground": "#505050",
+            "editorIndentGuide.background": "#333",
+            "statusBar.background": "#242424",
+            "statusBar.foreground": "#727272",
+            "panelTitle.activeForeground": "#a7a7a7"
+        }
+    },
+    "editor.tokenColorCustomizations": {
+        "[Monokai Dimmed]": {
+            "comments": "#666",
+            "textMateRules": [
+                {
+                    "name": "Class name",
+                    "scope": "entity.name.class, entity.name.type, entity.name.namespace, entity.name.scope-resolution",
+                    "settings": {
+                        "fontStyle": "",
+                        "foreground": "#9B3333",
+                    }
+                }
+            ]
+        }
+    },
+    "window.zoomLevel": 0,
+    "editor.wordWrapColumn": 100,
+    "editor.accessibilitySupport": "off",
+    "editor.autoClosingBrackets": "beforeWhitespace",
+    "editor.autoClosingQuotes": "beforeWhitespace",
+    "editor.folding": false,
+    "editor.hover.delay": 250,
+    "markdown-preview-enhanced.previewTheme": "github-dark.css",
+    "elixirLS.fetchDeps": false,
+    "workbench.editor.labelFormat": "short",
+    "workbench.editor.tabCloseButton": "left",
+    "search.quickOpen.history.filterSortOrder": "recency",
+    "gitlens.advanced.telemetry.enabled": false
+}

@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+APP_DIR=~/Library/Application\ Support/Code/User
+BACKUP_DIR="$(dirname "$0")"
+
+cp "$BACKUP_DIR/settings.json" "$APP_DIR"
+cp "$BACKUP_DIR/keybindings.json" "$APP_DIR"
+
+cat "$BACKUP_DIR/extensions.txt" | xargs -n 1 code --install-extension

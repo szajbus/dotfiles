@@ -1,0 +1,10 @@
+#!/bin/sh
+set -e
+
+APP_DIR=~/Library/Application\ Support/Code/User
+BACKUP_DIR="$(dirname "$0")"
+
+cp "$APP_DIR/settings.json" $BACKUP_DIR
+cp "$APP_DIR/keybindings.json" $BACKUP_DIR
+
+code --list-extensions > "$BACKUP_DIR/extensions.txt"
