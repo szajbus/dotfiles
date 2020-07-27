@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'net/http'
+require 'json'
+
+require 'optparse'
+
+options = {
+  token: ENV["SENTRY_API_TOKEN"],
+  limit: 1
+}
+
+args = OptionParser.new do |opts|
+  opts.banner = <<-BANNER
+Fetches events associated with a Sentry issue and prints them out in jsonl format.
+
+Usage: sentry-events [options] issue
+BANNER
+
+  opts.on("-t", "--token [TOKEN]", "Sentry API token")
+
+  opts.on("-l", "--limit [LIMIT]", Integer, "Number of event pages to retrieve (default: 1 page of ~100 events)")
+end.parse!(into: options)
+
+def fetch_url(issue, token, cursor)
+  uri = URI("https://sentry.io/api/0/issues/#{issue}/events/?&cursor=#{cursor}")
+
+  req = Net::HTTP::Get.new(uri)
+  req["Authorization"] = "Bearer #{token}"
+
+  resp = Net::HTTP.start(uri.host, uri.port, use_ssl: true) { |http| http.request(req) }
+end
+
+def extract_events(resp)
+  JSON.parse(resp.body)
+end
+
+def get_next_cursor(resp)
+  prev_link, next_link = resp['Link'].split(", ")
+
+  if next_link.include?("results=\"true\"")
+    matches = next_link.match(/cursor="(?<cursor>[^"]+)"/)
+    matches[:cursor]
+  end
+end
+
+issue = args.first
+cursor = nil
+
+unless issue
+  $stderr.puts "Issue ID is required"
+  exit
+end
+
+options[:limit].times do
+  resp = fetch_url(issue, options[:token], cursor)
+  $stderr.print "."
+
+  if resp.is_a?(Net::HTTPSuccess)
+    extract_events(resp).each do |event|
+      $stdout.puts JSON.dump(event)
+    end
+
+    cursor = get_next_cursor(resp)
+
+    break unless cursor
+  else
+    $stderr.puts resp.inspect
+    break
+  end
+end
+
+$stderr.puts
