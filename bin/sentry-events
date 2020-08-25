@@ -17,9 +17,9 @@ Fetches events associated with a Sentry issue and prints them out in jsonl forma
 Usage: sentry-events [options] issue
 BANNER
 
-  opts.on("-t", "--token [TOKEN]", "Sentry API token")
+  opts.on("-t", "--token [TOKEN]", "Sentry API token, uses $SENTRY_API_TOKEN env variable by default")
 
-  opts.on("-l", "--limit [LIMIT]", Integer, "Number of event pages to retrieve (default: 1 page of ~100 events)")
+  opts.on("-l", "--limit [LIMIT]", Integer, "Number of event pages to retrieve, default is 1 page (of ~100 events)")
 end.parse!(into: options)
 
 def fetch_url(issue, token, cursor)
