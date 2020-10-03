@@ -6,14 +6,40 @@ function usage() {
 $me [command] [args]
 
 Commands:
-  index list [pattern]   - list all indices or matching optional pattern
-  index delete [pattern] - delete indices matching pattern
+  $(tput smul)index list$(tput rmul) [pattern]         - list all indices or matching optional pattern
+  $(tput smul)index delete$(tput rmul) [pattern]       - delete indices matching pattern
+  $(tput smul)index add-mapping$(tput rmul) index json - add new field to existing index
 EOF
+}
+
+function maybe_verbose() {
+  if [[ $VERBOSE = "1" ]]; then
+    (set -x; "$@")
+  else
+    "$@"
+  fi
+}
+
+function get() {
+  maybe_verbose $CURL "$CLUSTER/$1"
+}
+
+function post() {
+  maybe_verbose $CURL -X POST -H "Content-Type: application/json" $CLUSTER/"$@"
+}
+
+function put() {
+  maybe_verbose $CURL -X PUT -H "Content-Type: application/json" $CLUSTER/"$@"
+}
+
+function delete() {
+  maybe_verbose $CURL -X DELETE $CLUSTER/"$@"
 }
 
 function index_list() {
   format="long"
   pattern="*"
+  query=""
 
   while [[ $# -gt 0 ]]; do
     key="$1"
@@ -30,17 +56,15 @@ function index_list() {
     esac
   done
 
-  cmd="$CURL $CLUSTER/_cat/indices/$pattern"
-
   case $format in
     short)
-      cmd="$cmd?v&s=index&h=index"
+      query="v&s=index&h=index"
       ;;
     *)
-      cmd="$cmd?v&s=index&h=index,health,status,docs.count,store.size"
+      query="v&s=index&h=index,health,status,docs.count,store.size"
   esac
 
-  $cmd
+  get _cat/indices/$pattern?$query
 }
 
 function index_delete() {
@@ -51,13 +75,11 @@ function index_delete() {
     exit 1
   fi
 
-  cmd="$CURL $CLUSTER/_cat/indices/$pattern?v&h=index"
-  indices=`$cmd | tail -n +2`
+  indices=`get _cat/indices/$pattern?v\&h=index | tail -n +2`
 
   for index in $indices; do
+    result=`delete $index`
     echo -n "Delete $index... "
-    cmd="$CURL -X DELETE $CLUSTER/$index"
-    result=`$cmd`
 
     if [ "$result" == '{"acknowledged":true}' ]; then
       echo "OK"
@@ -67,8 +89,21 @@ function index_delete() {
   done
 }
 
+function index_add_mapping() {
+  index="$1"
+  json="$2"
+
+  if [[ -z $json ]]; then
+    echo "json argument is required"
+    exit 1
+  fi
+
+  put $index/_mapping -d "$json"
+}
+
 CURL="curl --silent"
 CLUSTER="http://localhost:9200"
+VERBOSE=0
 POSITIONAL=()
 
 while [[ $# -gt 0 ]]; do
@@ -81,13 +116,17 @@ while [[ $# -gt 0 ]]; do
       ;;
     index)
       MODULE="$1"
-      COMMAND="$2"
+      COMMAND="$(echo $2 | sed 's/-/_/')"
       shift
       shift
       ;;
     --cluster)
       CLUSTER="$2"
       shift
+      shift
+      ;;
+    -v|--verbose)
+      VERBOSE=1
       shift
       ;;
     *)
