@@ -16,6 +16,11 @@ Commands:
 Options:
   -c, --cluster                - Elasticsearch cluster URL, http://localhost:9200 is default
   -v, --verbose                - Print out all curl commands to stderr
+
+Examples:
+  $me --cluster https://my-cluster:9200 index list
+  $me --cluster https://another-cluster:9200 index delete *-test
+  $me add-mapping my-index '{"properties": {"new_field": {"type": "text"}}}'
 EOF
 }
 
