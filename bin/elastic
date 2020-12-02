@@ -20,7 +20,7 @@ Options:
 Examples:
   $me --cluster https://my-cluster:9200 index list
   $me --cluster https://another-cluster:9200 index delete *-test
-  $me add-mapping my-index '{"properties": {"new_field": {"type": "text"}}}'
+  $me index add-mapping my-index '{"properties": {"new_field": {"type": "text"}}}'
 EOF
 }
 
