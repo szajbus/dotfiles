@@ -13,6 +13,7 @@ Commands:
   $(tput smul)index delete$(tput rmul) [pattern]       - delete indices matching pattern
   $(tput smul)index add-mapping$(tput rmul) index json - add new field to existing index
   $(tput smul)index add-alias$(tput rmul) index alias  - add new alias to existing index
+  $(tput smul)alias list$(tput rmul)                   - list all aliases
 
 Options:
   -c, --cluster                - Elasticsearch cluster URL, http://localhost:9200 is default
@@ -128,6 +129,10 @@ function index_add_alias() {
   post _aliases -d "$json"
 }
 
+function alias_list() {
+  get _cat/aliases
+}
+
 CURL="curl --silent"
 CLUSTER="http://localhost:9200"
 VERBOSE=0
@@ -141,7 +146,7 @@ while [[ $# -gt 0 ]]; do
       usage
       exit 0
       ;;
-    index)
+    index|alias)
       MODULE="$1"
       COMMAND="$(echo $2 | sed 's/-/_/')"
       shift
@@ -166,7 +171,7 @@ done
 set -- "${POSITIONAL[@]}"
 
 case $MODULE in
-  index)
+  index|alias)
     func="${MODULE}_${COMMAND}"
     $func "${POSITIONAL[@]}"
     ;;
