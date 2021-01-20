@@ -19,7 +19,8 @@
   br = branch                       # branch
   branch-name = "!git rev-parse --abbrev-ref HEAD" # print current branch name
   delete-merged = "!git branch --merged master | grep -v master | xargs -I% git branch -d %"
-  delete-merged-remotes = "!git branch --remotes --merged=master | grep origin | grep -v 'origin/master' | sed 's|origin/||' | xargs -I% git push origin :%"
+  delete-merged-main = "!git branch --merged main | grep -v main | xargs -I% git branch -d %"
+  delete-merged-main-remotes = "!git branch --remotes --merged=main | grep origin | grep -v 'origin/main' | sed 's|origin/||' | xargs -I% git push origin :%"
 
   # commit
   ca = commit -am                   # commit all with message
