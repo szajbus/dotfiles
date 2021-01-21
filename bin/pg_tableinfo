@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cat | psql $1 <<SQL
+SELECT schemaname, relname::text, n_live_tup, pg_size_pretty(pg_total_relation_size(relname::text))
+  FROM pg_stat_user_tables
+  ORDER BY pg_total_relation_size(relname::text) DESC;
+SQL
+
