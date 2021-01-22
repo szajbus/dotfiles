@@ -76,9 +76,6 @@
 [submodule "vim/bundle/symbol-strings"]
 	path = vim/bundle/symbol-strings
 	url = https://github.com/rorymckinley/vim-symbols-strings.git
-[submodule "vim/bundle/io"]
-	path = vim/bundle/io
-	url = https://github.com/xhr/vim-io.git
 [submodule "vim/bundle/greplace"]
 	path = vim/bundle/greplace
 	url = https://github.com/vim-scripts/greplace.vim.git
