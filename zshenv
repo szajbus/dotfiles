@@ -29,11 +29,20 @@ fi
 
 export KEYTIMEOUT=1
 
+### secrets
+[[ -f $HOME/.secrets ]] && source $HOME/.secrets
+
+### custom
+export ES="http://localhost:9200"
+
 ### rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
 fi
+
+### asdf
+[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
 
 ### mix
 if [ -d ~/.mix ]; then
