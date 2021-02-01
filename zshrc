@@ -80,12 +80,6 @@ if [ -d ~/.rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-### kiex
-#[[ -f $HOME/.kiex/scripts/kiex ]] && source "$HOME/.kiex/scripts/kiex"
-
-### kerl
-#[[ -f $HOME/kerl/21.0/activate ]] && source "$HOME/kerl/21.0/activate"
-
 ### asdf
 [[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
 
