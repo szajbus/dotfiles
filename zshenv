@@ -29,8 +29,6 @@ fi
 
 export KEYTIMEOUT=1
 
-fpath=($HOME/dotfiles/zsh/functions $fpath)
-
 ### rbenv
 if [ -d ~/.rbenv ]; then
   export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"

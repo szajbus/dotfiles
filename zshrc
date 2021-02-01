@@ -3,8 +3,11 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushd_silent
 
+### functions
+fpath=($HOME/dotfiles/zsh/functions $fpath)
+
 ### completion
-fpath=($HOME/dotfiles/zsh/completion $fpath)
+fpath=($HOME/dotfiles/zsh/completion $HOME/dev/*/completions $fpath)
 autoload -Uz compinit
 compinit -i
 
