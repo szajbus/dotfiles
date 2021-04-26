@@ -95,3 +95,5 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 
 # remove duplicates from $PATH
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+
+[[ -f "$HOME/dev/elastic-cli/elastic.sh" ]] && source "$HOME/dev/elastic-cli/elastic.sh"
