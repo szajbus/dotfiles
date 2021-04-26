@@ -34,22 +34,3 @@ export KEYTIMEOUT=1
 
 ### custom
 export ES="http://localhost:9200"
-
-### rbenv
-if [ -d ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
-### asdf
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
-
-### mix
-if [ -d ~/.mix ]; then
-  export PATH="$HOME/.mix/escripts:$PATH"
-fi
-
-export PATH="$HOME/dotfiles/bin:$PATH"
-
-# remove duplicates from $PATH
-export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
