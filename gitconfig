@@ -154,3 +154,5 @@
 	autoStash = true
 [log]
 	date = iso
+[init]
+	defaultBranch = main
