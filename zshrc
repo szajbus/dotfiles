@@ -97,3 +97,4 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 [[ -f "$HOME/dev/elastic-cli/elastic.sh" ]] && source "$HOME/dev/elastic-cli/elastic.sh"
+[[ -f "$HOME/dev/xref-tools/xref.sh" ]] && source "$HOME/dev/xref-tools/xref.sh"
