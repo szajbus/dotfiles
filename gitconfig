@@ -87,6 +87,7 @@
 
   # test
   quicktest = push --force origin HEAD:quicktest     # quickly test in CI
+  recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
