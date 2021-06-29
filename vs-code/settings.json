@@ -1,17 +1,20 @@
 {
     "editor.tabSize": 2,
     "editor.renderWhitespace": "none",
-    "editor.fontSize": 18,
+    "editor.fontSize": 14,
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
     "editor.minimap.enabled": false,
-    "editor.formatOnSave": true,
     "editor.wordWrap": "on",
     "diffEditor.renderSideBySide": false,
     "explorer.confirmDragAndDrop": false,
     "[elixir]": {
-        "editor.defaultFormatter": "elixir-lsp.elixir-ls"
+        "editor.defaultFormatter": "JakeBecker.elixir-ls"
+    },
+    "files.associations": {
+        "*.js.erb": "javascript",
+        "*.md.erb": "markdown"
     },
     "files.saveConflictResolution": "overwriteFileOnDisk",
     "diffEditor.ignoreTrimWhitespace": false,
@@ -59,17 +62,82 @@
             ]
         }
     },
-    "window.zoomLevel": 0,
     "editor.wordWrapColumn": 100,
     "editor.accessibilitySupport": "off",
     "editor.autoClosingBrackets": "beforeWhitespace",
     "editor.autoClosingQuotes": "beforeWhitespace",
-    "editor.folding": false,
+    "editor.folding": true,
     "editor.hover.delay": 250,
     "markdown-preview-enhanced.previewTheme": "github-dark.css",
     "elixirLS.fetchDeps": false,
     "workbench.editor.labelFormat": "short",
     "workbench.editor.tabCloseButton": "left",
     "search.quickOpen.history.filterSortOrder": "recency",
-    "gitlens.advanced.telemetry.enabled": false
+    "gitlens.advanced.telemetry.enabled": false,
+    "ruby.intellisense": "rubyLocate",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "elixirLS.suggestSpecs": false,
+    "gitlens.codeLens.scopes": [
+        "document"
+    ],
+    "gitlens.blame.highlight.locations": [
+        "gutter",
+        "line",
+        "overview"
+    ],
+    "workbench.editorAssociations": {
+        "git-rebase-todo": "default"
+    },
+    "gitlens.menus": {
+        "editorGroup": {
+            "blame": true,
+            "compare": true
+        },
+        "editorTab": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "explorer": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": true
+        },
+        "scm": {
+            "authors": true
+        },
+        "scmGroupInline": {
+            "stash": true
+        },
+        "scmGroup": {
+            "compare": true,
+            "openClose": true,
+            "stash": true
+        },
+        "scmItem": {
+            "clipboard": true,
+            "compare": true,
+            "history": true,
+            "remote": false,
+            "stash": true
+        }
+    },
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "editor.formatOnSave": true,
+    "window.zoomLevel": 1
 }
