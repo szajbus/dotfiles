@@ -29,6 +29,8 @@ fi
 
 export KEYTIMEOUT=1
 
+export GPG_TTY=$(tty)
+
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
 
