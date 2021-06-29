@@ -68,6 +68,15 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
   tmux attach-session -t $USER || tmux new-session -s $USER
 fi
 
+### homebrew
+if [ -d /opt/homebrew ]; then
+  export BREW_PREFIX="/opt/homebrew"
+  export PATH="/opt/homebrew/bin:$PATH"
+elif [ -d /usr/local/Homebrew ]; then
+  export BREW_PREFIX="/usr/local"
+  export PATH="/usr/local/bin:$PATH"
+fi
+
 ### Google Cloud SDK
 [[ -f "$HOME/google-cloud-sdk/path.zsh.inc" ]] && source "$HOME/google-cloud-sdk/path.zsh.inc"
 [[ -f "$HOME/google-cloud-sdk/completion.zsh.inc" ]] && source "$HOME/google-cloud-sdk/completion.zsh.inc"
@@ -84,7 +93,7 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### asdf
-[[ -f /usr/local/opt/asdf/asdf.sh ]] && source /usr/local/opt/asdf/asdf.sh
+[[ -f $BREW_PREFIX/opt/asdf/asdf.sh ]] && source $BREW_PREFIX/opt/asdf/asdf.sh
 
 ### mix
 if [ -d ~/.mix ]; then
