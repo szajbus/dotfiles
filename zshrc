@@ -95,6 +95,9 @@ fi
 ### asdf
 [[ -f $BREW_PREFIX/opt/asdf/asdf.sh ]] && source $BREW_PREFIX/opt/asdf/asdf.sh
 
+### kubectl completions
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 ### mix
 if [ -d ~/.mix ]; then
   export PATH="$HOME/.mix/escripts:$PATH"
