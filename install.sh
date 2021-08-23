@@ -52,6 +52,10 @@ ask "backup files?" && backup=true
 group dotfiles
 execute-script update-submodules
 
+group bash
+install-dotfiles bash_profile .bash_profile
+install-dotfiles bashrc .bashrc
+
 group zsh
 install-dotfiles zsh .zsh
 install-dotfiles zshenv .zshenv
