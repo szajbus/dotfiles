@@ -31,7 +31,7 @@ function prompt-git-info {
       [[ "$line" == ([ACDMT][\ MT]|[ACMT]D)\ * ]] && local added='%F{green}●%f'
       [[ "$line" == [\ ACMRT]D\ * ]]              && local deleted='%F{red}●%f'
       [[ "$line" == ?[MT]\ * ]]                   && local modified='%F{red}●%f'
-      [[ "$line" == R?\ * ]]                      && local added='%F{green}●%f'
+      [[ "$line" == R\ * ]]                       && local added='%F{green}a%f'
       [[ "$line" == (AA|DD|U?|?U)\ * ]]           && local modified='%F{red}●%f'
       [[ "$line" == \?\?\ * ]]                    && local untracked='%F{yellow}●%f'
     done < <(git status --porcelain 2> /dev/null)
