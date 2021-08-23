@@ -24,7 +24,8 @@ fi
 if [[ $(uname) == "Darwin" ]]; then
   export MARKDOWN_EDITOR="$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown"
 
-  defaults read -g AppleInterfaceStyle | grep -v dark &> /dev/null && export DARK_MODE=1
+  # the following function succeds only when dark mode is enabled
+  defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && export DARK_MODE=1
 fi
 
 export KEYTIMEOUT=1
@@ -36,3 +37,4 @@ export GPG_TTY=$(tty)
 
 ### custom
 export ES="http://localhost:9200"
+export JSON="-Hcontent-type:application/json"
