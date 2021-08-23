@@ -1,5 +1,3 @@
-autoload -Uz git-current-branch git-is-repo ruby-version
-
 setopt prompt_cr
 setopt prompt_percent
 setopt prompt_sp
@@ -23,8 +21,10 @@ function prompt-setup {
 }
 
 function prompt-git-info {
-  if git-is-repo; then
-    local branch="%F{cyan}$(git-current-branch)%f"
+  git rev-parse 2> /dev/null
+
+  if [[ $? -eq 0 ]]; then
+    local branch="%F{cyan}$(git symbolic-ref --short HEAD)%f"
 
     # Get current status
     while IFS=$'\n' read line; do

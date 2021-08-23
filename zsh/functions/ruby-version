@@ -1,6 +1,0 @@
-if [ -d $HOME/.rbenv ]; then
-  rbenv version-name
-else
-  ruby -v 2> /dev/null | awk '{print $2}'
-fi
-
