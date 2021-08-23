@@ -1,25 +1,21 @@
-#!/usr/bin/env zsh
+#!/bin/bash
 # Usage:
-#   install.zsh
+#   install.sh
 
-autoload -Uz colors
-colors
+backup=false
 
 function ask {
-  local answer=false
-
-  echo -n "  ${fg[yellow]}${argv[1]} (y/N): ${reset_color}"
-  read -sq && local answer=true
-  $answer && echo yes || echo no
-  $answer && return 0
+  read -p "  $1 (y/N) " -n 1 -r
+  echo
+  [[ $REPLY =~ ^[Yy]$ ]] && return 0
 }
 
 function install-dotfiles {
-  local src="${HOME}/dotfiles/${argv[1]}"
-  local dest="${HOME}/${argv[2]}"
+  local src="${HOME}/dotfiles/$1"
+  local dest="${HOME}/$2"
   local secrets=false
 
-  [[ $argv[1] == 'secrets' ]] && local secrets=true
+  [[ $1 == 'secrets' ]] && local secrets=true
 
   if $secrets; then
     [[ ! -e $dest ]] && cp $src $dest
@@ -29,29 +25,28 @@ function install-dotfiles {
   fi
 
   [[ -d $src ]] && local slash='/'
-  echo "+ ${fg[green]}${argv[1]}${slash}${reset_color}"
+  echo "+ $1${slash}"
 }
 
 function execute-script {
-  local script="${HOME}/dotfiles/install/${argv[1]}"
+  local script="${HOME}/dotfiles/install/$1"
   `${script} > /dev/null 2>&1`
-  echo "+ ${fg[green]}${argv[1]}${reset_color}"
+  echo "+ $1"
 }
 
 function ask-execute-script {
-  ask "install ${argv[1]}?" && execute-script $argv[1]
+  ask "install $1?" && execute-script $1
 }
 
 function group {
-  echo "[${fg[magenta]}${argv[1]}${reset_color}]"
+  echo "[$1]"
 }
 
 function copy-files {
-  cp -f ${HOME}/dotfiles/${argv[1]}/* ${argv[2]}
-  echo "+ ${fg[green]}${argv[1]}${reset_color}"
+  cp -f ${HOME}/dotfiles/$1/* $2
+  echo "+ $1"
 }
 
-local backup=false
 ask "backup files?" && backup=true
 
 group dotfiles
@@ -95,7 +90,7 @@ if [[ $(uname) == "Darwin" ]]; then
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex
   copy-files fonts ~/Library/fonts
-else;
+else
   group linux
   install-dotfiles hushlogin .hushlogin
 fi
