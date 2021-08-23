@@ -28,6 +28,9 @@ fi
 ### asdf
 [[ -f $BREW_PREFIX/opt/asdf/asdf.sh ]] && source $BREW_PREFIX/opt/asdf/asdf.sh
 
+### erlang
+export ERL_AFLAGS="-kernel shell_history enabled"
+
 ### mix
 if [ -d ~/.mix ]; then
   export PATH="$HOME/.mix/escripts:$PATH"
