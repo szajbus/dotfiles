@@ -25,7 +25,6 @@ if $DARK_MODE
   set background=dark
 else
   set background=light
-  colorscheme solarized
 endif
 
 " Filetype
