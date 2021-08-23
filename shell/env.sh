@@ -32,9 +32,6 @@ export KEYTIMEOUT=1
 
 export GPG_TTY=$(tty)
 
-### secrets
-[[ -f $HOME/.secrets ]] && source $HOME/.secrets
-
 ### custom
 export ES="http://localhost:9200"
 export JSON="-Hcontent-type:application/json"

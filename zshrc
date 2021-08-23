@@ -57,8 +57,11 @@ source $HOME/dotfiles/zsh/plugins/zsh-history-substring-search/zsh-history-subst
 ### functions
 autoload -Uz logbook
 
+### kubectl completions
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
 ### run common commands
 source $HOME/dotfiles/shell/rc.sh
 
-### kubectl completions
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+### secrets
+[[ -f $HOME/.secrets ]] && source $HOME/.secrets
