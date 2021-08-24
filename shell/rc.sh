@@ -25,7 +25,11 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### asdf
-[[ -f $BREW_PREFIX/opt/asdf/asdf.sh ]] && source $BREW_PREFIX/opt/asdf/asdf.sh
+if [ -f $BREW_PREFIX/opt/asdf/asdf.sh ]; then
+  source $BREW_PREFIX/opt/asdf/asdf.sh
+elif [ -f $HOME/.asdf/asdf.sh ]; then
+  source $HOME/.asdf/asdf.sh
+fi
 
 ### erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
