@@ -50,6 +50,9 @@ setopt notify
 ### prompt
 source $HOME/dotfiles/zsh/prompt.zsh
 
+### key bindings
+source $HOME/dotfiles/zsh/key_bindings.zsh
+
 ### plugins
 source $HOME/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
 source $HOME/dotfiles/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh

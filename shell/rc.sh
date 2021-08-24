@@ -1,5 +1,4 @@
 source $HOME/dotfiles/shell/aliases.sh
-source $HOME/dotfiles/shell/key_bindings.sh
 
 ### tmux
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
