@@ -28,15 +28,13 @@ function prompt-git-info {
 
     # Get current status
     while IFS=$'\n' read line; do
-      [[ "$line" == ([ACDMT][\ MT]|[ACMT]D)\ * ]] && local added='%F{green}●%f'
-      [[ "$line" == [\ ACMRT]D\ * ]]              && local deleted='%F{red}●%f'
-      [[ "$line" == ?[MT]\ * ]]                   && local modified='%F{red}●%f'
-      [[ "$line" == R\ * ]]                       && local added='%F{green}a%f'
-      [[ "$line" == (AA|DD|U?|?U)\ * ]]           && local modified='%F{red}●%f'
-      [[ "$line" == \?\?\ * ]]                    && local untracked='%F{yellow}●%f'
+      [[ "$line" =~ ^[MADRC]\ \ .* ]]       && local staged="%F{green}●%f"
+      [[ "$line" =~ ^.[MADRC]\ .* ]]        && local unstaged="%F{red}●%f"
+      [[ "$line" =~ ^(AA|DD|U.|.U)\ .* ]]   && local unstaged="%F{red}●%f"
+      [[ "$line" =~ ^\?\?\ .* ]]            && local untracked="%F{yellow}●%f"
     done < <(git status --porcelain 2> /dev/null)
 
-    echo "[${branch}${deleted}${added}${modified}${untracked}]"
+    echo "[${branch}${staged}${unstaged}${untracked}]"
   fi
 }
 
