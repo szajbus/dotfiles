@@ -47,15 +47,15 @@ unsetopt hup
 setopt long_list_jobs
 setopt notify
 
+### plugins
+source $HOME/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
+source $HOME/dotfiles/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+
 ### prompt
 source $HOME/dotfiles/zsh/prompt.zsh
 
 ### key bindings
 source $HOME/dotfiles/zsh/key_bindings.zsh
-
-### plugins
-source $HOME/dotfiles/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh
-source $HOME/dotfiles/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 ### functions
 autoload -Uz logbook
