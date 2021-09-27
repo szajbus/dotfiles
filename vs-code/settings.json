@@ -2,10 +2,12 @@
     "editor.tabSize": 2,
     "editor.renderWhitespace": "none",
     "editor.fontSize": 14,
+    "editor.fontFamily": "Monaco, Menlo, Courier New",
+    "terminal.integrated.fontSize": 14,
+    "terminal.integrated.fontFamily": "Monaco, Menlo, Courier New",
     "files.insertFinalNewline": true,
     "files.trimTrailingWhitespace": true,
     "files.trimFinalNewlines": true,
-    "editor.minimap.enabled": false,
     "editor.wordWrap": "on",
     "diffEditor.renderSideBySide": false,
     "explorer.confirmDragAndDrop": false,
@@ -20,16 +22,14 @@
     "diffEditor.ignoreTrimWhitespace": false,
     "extensions.ignoreRecommendations": false,
     "elixirLS.dialyzerFormat": "dialyxir_long",
-    "workbench.activityBar.visible": false,
     "workbench.tree.indent": 16,
     "workbench.tree.renderIndentGuides": "none",
     "editor.cursorWidth": 3,
-    "editor.find.seedSearchStringFromSelection": false,
+    "editor.find.seedSearchStringFromSelection": "never",
     "workbench.quickOpen.closeOnFocusLost": false,
     "workbench.quickOpen.preserveInput": true,
     "explorer.decorations.colors": false,
     "search.showLineNumbers": true,
-    "workbench.colorTheme": "Monokai Dimmed",
     "workbench.colorCustomizations": {
         "[Monokai Dimmed]": {
             "foreground": "#a7a7a7",
@@ -37,14 +37,19 @@
             "editor.foreground": "#a7a7a7",
             "tab.inactiveBackground": "#282828",
             "tab.inactiveForeground": "#b8b8b8",
-            "tab.activeForeground": "#b8b8b8",
+            "tab.activeForeground": "#d0d0d0",
+            "tab.activeBackground": "#3f3f3f",
             "badge.background": "#333",
             "badge.foreground": "#a7a7a7",
             "editorLineNumber.foreground": "#505050",
             "editorIndentGuide.background": "#333",
             "statusBar.background": "#242424",
             "statusBar.foreground": "#727272",
-            "panelTitle.activeForeground": "#a7a7a7"
+            "panelTitle.activeForeground": "#e0d9d9"
+        },
+        "[Atom One Light]": {
+            "editor.selectionBackground": "#c8c8c8",
+            "editor.selectionHighlightBackground": "#e0e0e0"
         }
     },
     "editor.tokenColorCustomizations": {
@@ -139,5 +144,12 @@
     },
     "typescript.updateImportsOnFileMove.enabled": "always",
     "editor.formatOnSave": true,
-    "window.zoomLevel": 1
+    "redhat.telemetry.enabled": false,
+    "terminal.external.osxExec": "tmux",
+    "window.autoDetectColorScheme": true,
+    "workbench.colorTheme": "Monokai Dimmed",
+    "workbench.activityBar.visible": false,
+    "editor.minimap.enabled": false,
+    "terminal.external.linuxExec": "tmux",
+    "terminal.integrated.defaultProfile.osx": "tmux"
 }

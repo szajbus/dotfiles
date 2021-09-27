@@ -3,9 +3,11 @@ aliariff.auto-add-brackets
 benvp.vscode-hex-pm-intellisense
 dual.zsh-completion-script
 eamodio.gitlens
+earthly.earthfile-syntax-highlighting
 erlang-ls.erlang-ls
 esbenp.prettier-vscode
 florinpatrascu.vscode-elixir-snippets
+golang.go
 ionceflorin.copy-current-file-path
 JakeBecker.elixir-ls
 jetmartin.bats
@@ -13,6 +15,10 @@ karunamurti.haml
 mjmcloug.vscode-elixir
 mohd-akram.vscode-html-format
 mohsen1.prettify-json
+ms-azuretools.vscode-docker
+ms-vscode-remote.remote-containers
+ms-vscode-remote.remote-ssh
+ms-vscode-remote.remote-ssh-edit
 rebornix.ruby
 redhat.vscode-commons
 redhat.vscode-xml
