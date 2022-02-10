@@ -6,22 +6,6 @@ setopt pushd_silent
 ### functions
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
-### completion
-fpath=($HOME/dotfiles/zsh/completion $HOME/dev/*/completions $fpath)
-autoload -Uz compinit
-compinit -i
-
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path ~/.zsh-cache
-
-setopt always_to_end
-setopt auto_menu
-setopt auto_param_keys
-setopt auto_param_slash
-setopt auto_remove_slash
-setopt complete_in_word
-setopt extended_glob
-
 ### history
 command_oriented_history=1
 HISTCONTROL=ignoreboth
@@ -60,11 +44,33 @@ source $HOME/dotfiles/zsh/key_bindings.zsh
 ### functions
 autoload -Uz logbook
 
-### kubectl completions
-[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
-
 ### run common commands
 source $HOME/dotfiles/shell/rc.sh
+
+### completion
+fpath=($HOME/dotfiles/zsh/completion $HOME/dev/*/completions $fpath)
+
+if type brew &>/dev/null
+then
+  fpath=($(brew --prefix)/share/zsh/site-functions $fpath)
+fi
+
+autoload -Uz compinit
+compinit -i
+
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh-cache
+
+setopt always_to_end
+setopt auto_menu
+setopt auto_param_keys
+setopt auto_param_slash
+setopt auto_remove_slash
+setopt complete_in_word
+setopt extended_glob
+
+### kubectl completions
+[[ $commands[kubectl] ]] && source <(kubectl completion zsh)
 
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
