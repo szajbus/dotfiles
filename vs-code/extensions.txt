@@ -11,14 +11,17 @@ golang.go
 ionceflorin.copy-current-file-path
 JakeBecker.elixir-ls
 jetmartin.bats
+jnbt.vscode-rufo
 karunamurti.haml
 mjmcloug.vscode-elixir
 mohd-akram.vscode-html-format
 mohsen1.prettify-json
 ms-azuretools.vscode-docker
+ms-kubernetes-tools.vscode-kubernetes-tools
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
+phoenixframework.phoenix
 rebornix.ruby
 redhat.vscode-commons
 redhat.vscode-xml
@@ -32,3 +35,4 @@ szTheory.erlang-formatter
 vscodevim.vim
 wingrunr21.vscode-ruby
 yuce.erlang-otp
+zenghongtu.vscode-asciiflow2

@@ -50,6 +50,10 @@
         "[Atom One Light]": {
             "editor.selectionBackground": "#c8c8c8",
             "editor.selectionHighlightBackground": "#e0e0e0"
+        },
+        "[Solarized Light]": {
+            "editor.selectionBackground": "#ffb700",
+            "editor.selectionHighlightBackground": "#ffcc5f"
         }
     },
     "editor.tokenColorCustomizations": {
@@ -78,6 +82,7 @@
     "workbench.editor.labelFormat": "short",
     "workbench.editor.tabCloseButton": "left",
     "search.quickOpen.history.filterSortOrder": "recency",
+    "workbench.panel.defaultLocation": "right",
     "gitlens.advanced.telemetry.enabled": false,
     "ruby.intellisense": "rubyLocate",
     "[javascript]": {
@@ -147,9 +152,12 @@
     "redhat.telemetry.enabled": false,
     "terminal.external.osxExec": "tmux",
     "window.autoDetectColorScheme": true,
-    "workbench.colorTheme": "Monokai Dimmed",
-    "workbench.activityBar.visible": false,
     "editor.minimap.enabled": false,
     "terminal.external.linuxExec": "tmux",
-    "terminal.integrated.defaultProfile.osx": "tmux"
+    "terminal.integrated.defaultProfile.osx": "tmux",
+    "window.newWindowDimensions": "inherit",
+    "search.smartCase": true,
+    "terminal.integrated.scrollback": 4000,
+    "workbench.colorTheme": "Solarized Light",
+    "window.zoomLevel": -1
 }
