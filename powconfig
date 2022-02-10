@@ -1,5 +1,0 @@
-export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-export POW_TIMEOUT=900
-export POW_WORKERS=2
-export POW_DST_PORT=44444
-export POW_DOMAINS=dev,test,local
