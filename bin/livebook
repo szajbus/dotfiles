@@ -1,0 +1,14 @@
+#!/bin/bash
+
+LIVEBOOK_PATH=${1:-~/livebook}
+
+mkdir -p ${LIVEBOOK_PATH}
+
+docker run \
+  --rm \
+  --publish 8080:8080 \
+  --publish 8081:8081 \
+  --pull always \
+  --user $(id -u):$(id -g) \
+  --volume ${LIVEBOOK_PATH}:/data \
+  livebook/livebook
