@@ -1,13 +1,17 @@
 #!/bin/bash
 
 LIVEBOOK_PATH=${1:-~/livebook}
+LIVEBOOK_PORT=${LIVEBOOK_PORT:-18080}
+LIVEBOOK_IFRAME_PORT=${LIVEBOOK_IFRAME_PORT:-18081}
 
 mkdir -p ${LIVEBOOK_PATH}
 
 docker run \
   --rm \
-  --publish 8080:8080 \
-  --publish 8081:8081 \
+  --publish 127.0.0.1:${LIVEBOOK_PORT}:${LIVEBOOK_PORT} \
+  --publish 127.0.0.1:${LIVEBOOK_IFRAME_PORT}:${LIVEBOOK_IFRAME_PORT} \
+  --env "LIVEBOOK_PORT=${LIVEBOOK_PORT}" \
+  --env "LIVEBOOK_IFRAME_PORT=${LIVEBOOK_IFRAME_PORT}" \
   --pull always \
   --user $(id -u):$(id -g) \
   --volume ${LIVEBOOK_PATH}:/data \
