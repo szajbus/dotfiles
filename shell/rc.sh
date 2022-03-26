@@ -48,5 +48,5 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 # other tools
-maybe_source "$HOME/dev/elastic-cli/elastic.sh"
-maybe_source "$HOME/dev/xref-tools/xref.sh"
+maybe_source "$CODE/elastic-cli/elastic.sh"
+maybe_source "$CODE/xref-tools/xref.sh"

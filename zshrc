@@ -48,7 +48,7 @@ autoload -Uz logbook
 source $HOME/dotfiles/shell/rc.sh
 
 ### completion
-fpath=($HOME/dotfiles/zsh/completion $HOME/dev/*/completions $fpath)
+fpath=($HOME/dotfiles/zsh/completion $CODE/*/completions $fpath)
 
 if type brew &>/dev/null
 then
