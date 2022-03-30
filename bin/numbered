@@ -1,0 +1,3 @@
+#!/bin/bash
+WIDTH=${1:-1}
+awk '{printf("%'$WIDTH'd\t%s\n", NR, $0)}'
