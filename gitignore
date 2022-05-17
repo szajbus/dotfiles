@@ -15,6 +15,9 @@ Session.vim
 .netrwhist
 *~
 
+# VSCode
+.vscode
+
 # Ruby
 .rvmrc
 .ruby-version
