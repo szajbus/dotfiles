@@ -80,6 +80,7 @@ group ack
 install-dotfiles ackrc .ackrc
 
 group tmux
+execute-script install-tmux-plugins
 install-dotfiles tmux.conf .tmux.conf
 
 group vim
