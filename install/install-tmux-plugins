@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+mkdir ~/.tmux-plugins
+git clone https://github.com/tmux-plugins/tmux-yank ~/.tmux-plugins/tmux-yank > /dev/null
