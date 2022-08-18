@@ -28,6 +28,9 @@ if [[ $(uname) == "Darwin" ]]; then
 
   # the following function succeeds only when dark mode is enabled
   defaults read -g AppleInterfaceStyle >/dev/null 2>&1 && export DARK_MODE=1
+
+  # prevent python crashes on macOS 10.13+, e.g. when using hvac via ansible
+  export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 fi
 
 export KEYTIMEOUT=1
