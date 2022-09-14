@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-echo "[$1](https://telnyx.atlassian.net/browse/$1)"

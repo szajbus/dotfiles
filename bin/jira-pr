@@ -1,0 +1,7 @@
+#!/bin/bash
+
+ISSUEID=$1; shift
+TITLE=$1; shift
+LINK="[$ISSUEID](https://telnyx.atlassian.net/browse/$ISSUEID)"
+
+gh pr create --body $LINK --title "$ISSUEID $TITLE" $@
