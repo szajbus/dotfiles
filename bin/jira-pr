@@ -1,7 +1,12 @@
 #!/bin/bash
 
+if [ -z $JIRAORG ]; then
+  echo "JIRAORG variable must be set"
+  exit
+fi
+
 ISSUEID=$1; shift
 TITLE=$1; shift
-LINK="[$ISSUEID](https://telnyx.atlassian.net/browse/$ISSUEID)"
+LINK="[$ISSUEID](https://$JIRAORG.atlassian.net/browse/$ISSUEID)"
 
 gh pr create --body $LINK --title "$ISSUEID $TITLE" $@
