@@ -1,0 +1,14 @@
+#!/bin/sh
+
+VERSION=$(cat VERSION)
+
+if [[ "$1" != "" ]]; then
+  VERSION=$1
+else
+  VERSION=$(cat VERSION | awk -F. '/[0-9]+\./{$NF++;print}' OFS=.)
+fi
+
+echo $VERSION > VERSION
+
+git add VERSION
+git commit --message "Bump version to ${VERSION}"
