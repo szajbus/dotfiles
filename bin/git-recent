@@ -1,0 +1,7 @@
+#!/bin/sh
+#
+# credits: https://news.ycombinator.com/item?id=32470619
+
+git for-each-ref \
+      --sort=-committerdate refs/heads/ \
+      --format='%(HEAD) %(color:red)%(objectname:short)%(color:reset) %(color:yellow)%(refname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'
