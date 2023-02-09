@@ -31,7 +31,7 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### asdf
-maybe_source "$BREW_PREFIX/opt/asdf/asdf.sh"
+maybe_source "$BREW_PREFIX/opt/asdf/libexec/asdf.sh"
 maybe_source "$HOME/.asdf/asdf.sh"
 
 ### erlang
