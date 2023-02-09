@@ -23,6 +23,15 @@ if [ "$SSH_CONNECTION" = "" ]; then
   export BUNDLER_EDITOR="$VISUAL"
 fi
 
+### homebrew
+if [ -d /opt/homebrew ]; then
+  export BREW_PREFIX="/opt/homebrew"
+  export PATH="/opt/homebrew/bin:$PATH"
+elif [ -d /usr/local/Homebrew ]; then
+  export BREW_PREFIX="/usr/local"
+  export PATH="/usr/local/bin:$PATH"
+fi
+
 if [[ $(uname) == "Darwin" ]]; then
   export MARKDOWN_EDITOR="$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown"
 

@@ -9,15 +9,6 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
   tmux attach-session -t $USER || tmux new-session -s $USER
 fi
 
-### homebrew
-if [ -d /opt/homebrew ]; then
-  export BREW_PREFIX="/opt/homebrew"
-  export PATH="/opt/homebrew/bin:$PATH"
-elif [ -d /usr/local/Homebrew ]; then
-  export BREW_PREFIX="/usr/local"
-  export PATH="/usr/local/bin:$PATH"
-fi
-
 ### Google Cloud SDK
 maybe_source "$HOME/google-cloud-sdk/path.zsh.inc"
 maybe_source "$HOME/google-cloud-sdk/completion.zsh.inc"
