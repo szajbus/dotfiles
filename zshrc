@@ -1,3 +1,8 @@
+# This file is for interactive shells.
+#
+# It sets options, loads shell modules, configures prompt, sets up zle and completions, and sets any
+# env variables that are only used in the interactive shell.
+
 ### changing directories
 setopt auto_pushd
 setopt pushd_ignore_dups
