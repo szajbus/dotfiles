@@ -37,6 +37,8 @@ export PATH="$HOME/dotfiles/bin:$PATH"
 
 # remove duplicates from $PATH
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export CPATH=$(echo -n "$CPATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+export LIBRARY_PATH=$(echo -n "$LIBRARY_PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
 # other tools
 maybe_source "$CODE/elastic-cli/elastic.sh"

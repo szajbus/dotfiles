@@ -32,6 +32,11 @@ elif [ -d /usr/local/Homebrew ]; then
   export PATH="/usr/local/bin:$PATH"
 fi
 
+if [[ -n $BREW_PREFIX ]]; then
+  export CPATH="$CPATH:$BREW_PREFIX/include"
+  export LIBRARY_PATH="$LIBRARY_PATH:$BREW_PREFIX/lib"
+fi
+
 if [[ $(uname) == "Darwin" ]]; then
   export MARKDOWN_EDITOR="$(mdfind kMDItemCFBundleIdentifier=com.uranusjr.macdown | head -n1)/Contents/SharedSupport/bin/macdown"
 
