@@ -1,0 +1,13 @@
+#!/bin/bash
+
+COMMITS=$(git log --graph --format='%h' | grep '^*' | sed -e 's/[^0-9a-f]*//')
+
+for SHA in $COMMITS; do
+  if git cat-file -e $SHA:VERSION 2>/dev/null; then
+    TAG=$(git show $SHA:VERSION)
+
+    if ! [ $(git tag --list $TAG) ]; then
+      git tag $TAG $SHA
+    fi
+  fi
+done
