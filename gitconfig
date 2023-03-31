@@ -17,6 +17,7 @@
 
   # branch
   br = branch                       # branch
+  recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
   branch-name = "!git rev-parse --abbrev-ref HEAD" # print current branch name
   delete-merged = "!git branch --merged master | grep -v master | xargs -I% git branch -d %"
   delete-merged-main = "!git branch --merged main | grep -v main | xargs -I% git branch -d %"
@@ -62,7 +63,7 @@
   rs = rebase --skip                # skip rebase
 
   # remote
-  remote = remote -v                     # show remotes (verbose)
+  remote = remote -v                # show remotes (verbose)
 
   # reset
   hard = reset --hard               # reset all changes
@@ -85,9 +86,8 @@
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
 
-  # test
-  quicktest = push --force origin HEAD:quicktest     # quickly test in CI
-  recent = branch --sort=-committerdate --format=\"%(committerdate:relative)%09%(refname:short)\"
+  # release
+  release = "!f() { git push --force origin HEAD:$1; }; f"
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
