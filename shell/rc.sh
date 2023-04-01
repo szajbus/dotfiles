@@ -4,6 +4,10 @@ maybe_source () {
   [[ -f $1 ]] && source $1
 }
 
+maybe_add_to_path () {
+  [[ -f $1 ]] && export PATH="$1:$PATH"
+}
+
 ### tmux
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
   tmux attach-session -t $USER || tmux new-session -s $USER
@@ -22,8 +26,8 @@ if [ -d ~/.rbenv ]; then
 fi
 
 ### asdf
-maybe_source "$BREW_PREFIX/opt/asdf/libexec/asdf.sh"
-maybe_source "$HOME/.asdf/asdf.sh"
+maybe_add_to_path "$BREW_PREFIX/opt/asdf/bin"
+maybe_add_to_path "$HOME/.asdf/bin"
 
 ### erlang
 export ERL_AFLAGS="-kernel shell_history enabled"

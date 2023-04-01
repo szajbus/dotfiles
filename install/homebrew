@@ -2,6 +2,6 @@
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 brew install \
-  asdf autoconf automake coreutils curl git \
+  autoconf automake coreutils curl git \
   libtool libxslt libyaml openssl readline unixodbc \
   unzip vim watch watchman zsh

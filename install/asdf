@@ -1,0 +1,34 @@
+#!/bin/bash
+
+if [[ $(uname) == "Darwin" ]]; then
+  brew install asdf
+
+  if [ -d /opt/homebrew ]; then
+    ASDF_BIN="/opt/homebrew/bin/asdf"
+  elif [ -d /usr/local/Homebrew ]; then
+    ASDF_BIN="/usr/local/bin/asdf"
+  fi
+else
+  REPO="https://github.com/asdf-vm/asdf.git"
+  TAG=$(git ls-remote --refs --tags --sort='v:refname' $REPO | tail -n 1 | cut -d '/' -f 3)
+
+  git clone --branch $TAG $REPO ~/.asdf
+
+  ASDF_BIN="~/.asdf/bin/asdf"
+fi
+
+$ASDF_BIN plugin-add elixir
+$ASDF_BIN plugin-add erlang
+$ASDF_BIN plugin-add golang
+$ASDF_BIN plugin-add nodejs
+$ASDF_BIN plugin-add python
+$ASDF_BIN plugin-add ruby
+$ASDF_BIN plugin-add yarn
+
+$ASDF_BIN plugin-add direnv
+$ASDF_BIN direnv setup --shell bash --version latest
+$ASDF_BIN direnv setup --shell zsh --version latest
+
+# asdf direnv setup pollutes dotfiles, clean up
+git checkout bashrc > /dev/null
+git checkout zshrc > /dev/null

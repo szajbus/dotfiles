@@ -3,6 +3,10 @@
 # It sets options, loads shell modules, configures prompt, sets up zle and completions, and sets any
 # env variables that are only used in the interactive shell.
 
+maybe_source () {
+  [[ -f $1 ]] && source $1
+}
+
 ### changing directories
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -79,3 +83,6 @@ setopt extended_glob
 
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
+
+### direnv
+maybe_source "${XDG_CONFIG_HOME:-$HOME/.config}/asdf-direnv/zshrc"

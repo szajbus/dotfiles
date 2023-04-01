@@ -97,3 +97,6 @@ else
   group linux
   install-dotfiles hushlogin .hushlogin
 fi
+
+group asdf
+ask-execute-script asdf
