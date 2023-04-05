@@ -54,3 +54,5 @@ export GPG_TTY=$(tty)
 ### custom
 export ES="http://localhost:9200"
 export JSON="-Hcontent-type:application/json"
+
+export REGEX_IP='[[:digit:]]\{1,3\}\.[[:digit:]]\{1,3\}\.[[:digit:]]\{1,3\}\.[[:digit:]]\{1,3\}'
