@@ -1,4 +1,0 @@
-#!/usr/bin/env sh
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv > /dev/null
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build > /dev/null
-git clone https://github.com/sstephenson/rbenv-vars.git ~/.rbenv/plugins/rbenv-vars > /dev/null

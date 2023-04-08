@@ -5,12 +5,6 @@ if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
   tmux attach-session -t $USER || tmux new-session -s $USER
 fi
 
-### rbenv
-if [ -d ~/.rbenv ]; then
-  export PATH="$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
-  eval "$(rbenv init -)"
-fi
-
 ### asdf
 maybe_source "$BREW_PREFIX/opt/asdf/libexec/asdf.sh"
 maybe_source "$HOME/.asdf/asdf.sh"
