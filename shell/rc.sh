@@ -23,7 +23,7 @@ if [ -d ~/.mix ]; then
   export PATH="$HOME/.mix/escripts:$PATH"
 fi
 
-export PATH="$HOME/dotfiles/bin:$PATH"
+export PATH="$HOME/dotfiles/bin:$HOME/dotfiles/shims:$PATH"
 
 # remove duplicates from $PATH
 export PATH=$(echo -n "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')

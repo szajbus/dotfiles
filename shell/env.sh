@@ -51,6 +51,11 @@ export KEYTIMEOUT=1
 
 export GPG_TTY=$(tty)
 
+### shims
+for shim in $(ls $HOME/dotfiles/shims); do
+  which $shim > /dev/null && eval "export NOSHIM_${shim}=$(which $shim)"
+done
+
 ### custom
 export ES="http://localhost:9200"
 export JSON="-Hcontent-type:application/json"

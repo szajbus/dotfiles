@@ -1,0 +1,13 @@
+#!/bin/sh
+
+if [ -z "${NOSHIM_tmux}" ]; then
+  echo "tmux: command not found"
+  exit 1
+fi
+
+if [ $# -eq 0 ]; then
+  SESSION="${PWD##*/}"
+  $NOSHIM_tmux attach-session -d -t $SESSION || $NOSHIM_tmux new-session -s $SESSION
+else
+  $NOSHIM_tmux "$@"
+fi
