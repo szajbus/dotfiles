@@ -2,7 +2,9 @@
 source ~/.vimrc.tiny
 
 " Pathogen
-execute pathogen#infect()
+if exists("pathogen#infect")
+  execute pathogen#infect()
+endif
 
 " General settings
 set history=1000 "Store lots of :cmdline history
