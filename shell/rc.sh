@@ -1,19 +1,9 @@
 source $HOME/dotfiles/shell/aliases.sh
 
-maybe_source () {
-  [[ -f $1 ]] && source $1
-}
-
 ### tmux
 if [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
   tmux attach-session -t $USER || tmux new-session -s $USER
 fi
-
-### Google Cloud SDK
-maybe_source "$HOME/google-cloud-sdk/path.zsh.inc"
-maybe_source "$HOME/google-cloud-sdk/completion.zsh.inc"
-maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
-maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 ### rbenv
 if [ -d ~/.rbenv ]; then

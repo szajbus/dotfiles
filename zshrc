@@ -3,6 +3,10 @@
 # It sets options, loads shell modules, configures prompt, sets up zle and completions, and sets any
 # env variables that are only used in the interactive shell.
 
+function maybe_source () {
+  [[ -f $1 ]] && source $1
+}
+
 ### changing directories
 setopt auto_pushd
 setopt pushd_ignore_dups
@@ -76,6 +80,12 @@ setopt extended_glob
 
 ### kubectl completions
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
+
+### Google Cloud SDK
+maybe_source "$HOME/google-cloud-sdk/path.zsh.inc"
+maybe_source "$HOME/google-cloud-sdk/completion.zsh.inc"
+maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
+maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
