@@ -1,0 +1,64 @@
+#!/bin/bash
+
+set -e
+
+function usage() {
+  cat << EOF
+d - docker helpers
+
+Usage:
+  d [--help] <command> [<args>]
+
+Available commands:
+
+  exec <container> <command> [<args>]   Shortcut for docker exec -it
+  inspect <container>                   Pretty print docker inspect
+  remote-iex <container>                Start remote iex in container running elixir release
+
+Available options:
+  -h, --help                            Shows this message
+
+EOF
+}
+
+function assert() {
+  [[ -z "$1" ]] && echo $2 1>&2 && exit 1 || true
+}
+
+if [ $# -eq 0 ]; then
+  usage
+  exit 1
+fi
+
+CMD="$1"; shift
+
+case $CMD in
+  exec)
+    CONTAINER=$1; assert $CONTAINER "missing <container> argument"; shift
+
+    docker exec -it $CONTAINER "$@"
+    ;;
+
+  inspect)
+    CONTAINER=$1; assert $CONTAINER "missing <container> argument"; shift
+
+    docker inspect $CONTAINER --format "Container    {{.Name}}
+Image        {{.Config.Image}}
+Status       {{.State.Status}}
+Started at   {{.State.StartedAt}}
+Finished at  {{.State.FinishedAt}}
+Error        {{.State.Error}}
+OOMKilled    {{.State.OOMKilled}}"
+    ;;
+
+  remote-iex)
+    CONTAINER=$1; assert $CONTAINER "missing <container> argument"; shift
+
+    docker exec -it $CONTAINER bin/${CONTAINER/-/_} remote
+    ;;
+
+  -h|--help)
+    usage
+    ;;
+
+esac
