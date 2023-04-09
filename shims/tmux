@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# This shim provides defaults when tmux is started without arguments,
+# which is the case when using tmux from VSCode for example.
+#
+# Session name is set to working directory's basename.
+# If a session already exists, it's attached to, otherwise it's created.
+
 if [ -z "${NOSHIM_tmux}" ]; then
   echo "tmux: command not found"
   exit 1
