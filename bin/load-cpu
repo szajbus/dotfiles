@@ -1,8 +1,8 @@
 #!/usr/bin/env sh
 
-# Sourc: https://superuser.com/a/443633/167622
+# Source: https://superuser.com/a/443633/167622
 #
-# Usage: lc [number_of_cpus_to_load [number_of_seconds] ]
+# Usage: load-cpu [number_of_cpus_to_load [number_of_seconds] ]
 
 pids=""
 cpus=${1:-1}
