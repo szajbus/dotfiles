@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# bash completions for bin/d
+
+function __docker_containers() {
+  docker ps --format "{{.Names}}" "$@"
+}
+
+function _d() {
+  local cur prev commands
+
+  COMPREPLY=()
+  cur="${COMP_WORDS[COMP_CWORD]}"
+  prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+  commands="exec inspect remote-iex"
+
+  case "${prev}" in
+    exec)
+      COMPREPLY=( $(compgen -W "$(__docker_containers --filter status=running)" -- ${cur}) )
+      return 0
+      ;;
+    inspect)
+      COMPREPLY=( $(compgen -W "$(__docker_containers --all)" -- ${cur}) )
+      return 0
+      ;;
+    remote-iex)
+      COMPREPLY=( $(compgen -W "$(__docker_containers --filter status=running)" -- ${cur}) )
+      return 0
+      ;;
+  esac
+
+  COMPREPLY=( $(compgen -W "${commands}" -- ${cur}) )
+  return 0
+}
+
+complete -F _d d
