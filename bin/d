@@ -54,7 +54,7 @@ OOMKilled    {{.State.OOMKilled}}"
   remote-iex)
     CONTAINER=$1; assert $CONTAINER "missing <container> argument"; shift
 
-    docker exec -it $CONTAINER bin/${CONTAINER/-/_} remote
+    docker exec -it $CONTAINER bin/${CONTAINER//-/_} remote
     ;;
 
   -h|--help)
