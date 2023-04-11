@@ -4,6 +4,8 @@
 # Usage:
 #   sync.sh <host> <profile>
 
+set -e
+
 REMOTE=$1
 PROFILE=$2
 PROFILE_PATH=~/dotfiles/remotes/${PROFILE}.profile
@@ -30,3 +32,5 @@ tar -c --directory ~/dotfiles ${DOTFILES_PATTERN[@]} \
         ln -nfs \${src} \${dest}
       done;
       rm dotfiles.${PROFILE}.tar"
+
+echo "synced ${PROFILE} dotfiles on ${REMOTE}" >&2
