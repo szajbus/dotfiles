@@ -60,7 +60,7 @@ group zsh
 install-dotfiles zsh .zsh
 install-dotfiles zshenv .zshenv
 install-dotfiles zshrc .zshrc
-install-dotfiles secrets .secrets
+install-dotfiles zlogin .zlogin
 
 group git
 install-dotfiles gitconfig .gitconfig
@@ -89,6 +89,9 @@ group vim
 install-dotfiles vim .vim
 install-dotfiles vimrc .vimrc
 install-dotfiles vimrc.tiny .vimrc.tiny
+
+group other
+install-dotfiles secrets .secrets
 
 if [[ $(uname) == "Darwin" ]]; then
   group osx

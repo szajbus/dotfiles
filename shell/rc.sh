@@ -1,10 +1,5 @@
 source $HOME/dotfiles/shell/aliases.sh
 
-### tmux
-if [ -t 1 ] && [[ -z "$TMUX" ]] && [ "$SSH_CONNECTION" != "" ]; then
-  tmux attach-session -d -t $USER || tmux new-session -s $USER
-fi
-
 ### asdf
 maybe_source "$BREW_PREFIX/opt/asdf/libexec/asdf.sh"
 maybe_source "$HOME/.asdf/asdf.sh"
