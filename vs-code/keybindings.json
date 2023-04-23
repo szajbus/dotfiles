@@ -33,6 +33,29 @@
     "when": "editorFocus"
   },
   {
+    "key": "shift+alt+[",
+    "command": "workbench.action.increaseViewSize"
+  },
+  {
+    "key": "shift+alt+]",
+    "command": "workbench.action.decreaseViewSize"
+  },
+  {
+    "key": "shift+alt+[",
+    "command": "workbench.action.terminal.resizePaneLeft",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+alt+]",
+    "command": "workbench.action.terminal.resizePaneRight",
+    "when": "panelFocus"
+  },
+  {
+    "key": "shift+alt+backspace",
+    "command": "workbench.action.evenEditorWidths",
+    "when": "editorFocus"
+  },
+  {
     "key": "shift+alt+p",
     "command": "github.copilot.toggleCopilot"
   }
