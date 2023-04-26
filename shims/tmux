@@ -13,7 +13,7 @@ fi
 
 if [ $# -eq 0 ]; then
   SESSION="${PWD##*/}"
-  $NOSHIM_tmux attach-session -d -t $SESSION || $NOSHIM_tmux new-session -s $SESSION
+  $NOSHIM_tmux new-session -s $SESSION 2>/dev/null || $NOSHIM_tmux attach-session -d -t $SESSION
 else
   $NOSHIM_tmux "$@"
 fi
