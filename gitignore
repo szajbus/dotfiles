@@ -28,5 +28,12 @@ Session.vim
 # Node
 npm-debug.log*
 
-# ElixirLS (vs code extension)
+# Elixir
 .elixir_ls
+erl_crash.dump
+/config/*.secret.exs
+
+# Python
+__pycache__
+.venv
+venv
