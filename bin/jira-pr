@@ -1,12 +1,45 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-if [ -z $JIRAORG ]; then
-  echo "JIRAORG variable must be set"
-  exit
-fi
+# gh pr create wrapper to link with jira issues
 
-ISSUEID=$1; shift
-TITLE=$1; shift
-LINK="[$ISSUEID](https://$JIRAORG.atlassian.net/browse/$ISSUEID)"
+set -e
 
-gh pr create --body $LINK --title "$ISSUEID $TITLE" $@
+function assert() {
+  [[ -z "$1" ]] && echo $2 1>&2 && exit 1 || true
+}
+
+POSITIONAL=()
+IN_TITLE=0
+
+while [[ $# -gt 0 ]]; do
+  arg="$1"
+
+  case $arg in
+    --)
+      IN_TITLE=1; shift
+      ;;
+    *)
+      if [[ $IN_TITLE -eq 1 ]]; then
+        if [[ -z $JIRA_ISSUE_ID ]]; then
+          JIRA_ISSUE_ID=$1
+          TITLE=$1
+        else
+          TITLE="$TITLE $1"
+        fi
+      else
+        POSITIONAL+=("$1")
+      fi
+
+      shift
+    ;;
+  esac
+done
+
+assert "$JIRA_ORG" "\$JIRA_ORG env variable must be set"
+
+LINK="[$JIRA_ISSUE_ID](https://$JIRA_ORG.atlassian.net/browse/$JIRA_ISSUE_ID)"
+
+set -- "${POSITIONAL[@]}"
+
+gh pr create --body $LINK --title "$TITLE" $@
+
