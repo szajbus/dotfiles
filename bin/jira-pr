@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# gh pr create wrapper to link with jira issues
-
 set -e
 
 function help() {
@@ -13,7 +11,7 @@ Requirements:
   * set \$JIRA_ORG environment variable
 
 Usage:
-  jira-pr <issue-id> <title> [-- <gh-opts>]
+  jira-pr <issue-id> [<title>] [-- <gh-opts>]
 
 Example:
   jira-pr PROJECT-123 My beautiful pull request -- --draft
