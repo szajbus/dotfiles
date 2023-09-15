@@ -11,4 +11,4 @@ fi
 echo $VERSION > VERSION
 
 git add VERSION
-git commit --message "Bump version to ${VERSION}"
+git commit --message "Bump version to ${VERSION}" --no-verify
