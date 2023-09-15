@@ -14,7 +14,7 @@ fi
 
 ### golang
 WHERE_GOLANG=$(asdf where golang 2> /dev/null)
-if [ -n "$WHERE_GOLANG" ]; then
+if [[ $? -eq 0 && -n "$WHERE_GOLANG" ]]; then
   export GOPATH="$WHERE_GOLANG/packages"
   export GOROOT="$WHERE_GOLANG/go"
   export PATH="$(go env GOPATH)/bin:$PATH"
