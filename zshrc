@@ -12,6 +12,9 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushd_silent
 
+### enable extended globbing
+setopt extendedglob
+
 ### functions
 fpath=($HOME/dotfiles/zsh/functions $fpath)
 
@@ -56,8 +59,12 @@ autoload -Uz logbook
 ### run common commands
 source $HOME/dotfiles/shell/rc.sh
 
-### completion
-fpath=($HOME/dotfiles/zsh/completion $CODE/*/completions $fpath)
+### completions
+if [[ -n $CODE/*/completions(#qN) ]]; then
+  fpath=($CODE/*/completions $fpath)
+fi
+
+fpath=($HOME/dotfiles/zsh/completion $fpath)
 
 if type brew &>/dev/null
 then
