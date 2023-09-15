@@ -1,5 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/env sh
 
 # Rebuild the index from scratch
 sudo mdutil -E /
-
