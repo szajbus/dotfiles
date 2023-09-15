@@ -83,7 +83,6 @@ setopt auto_param_keys
 setopt auto_param_slash
 setopt auto_remove_slash
 setopt complete_in_word
-setopt extended_glob
 
 ### kubectl completions
 [[ $commands[kubectl] ]] && source <(kubectl completion zsh)
@@ -96,3 +95,9 @@ maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/com
 
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
+
+if [[ -n $HOME/*/.secrets.*(#qN) ]]; then
+  for file in $(ls $HOME/.secrets.* 2>/dev/null); do
+    source $file
+  done
+fi
