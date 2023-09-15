@@ -1,7 +1,13 @@
 #!/usr/bin/env bash
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install \
-  asdf autoconf automake coreutils curl git \
-  libtool libxslt libyaml openssl readline unixodbc \
-  unzip vim watch watchman zsh
+  asdf autoconf automake coreutils curl git gh jq \
+  libtool libxslt libyaml openssl readline tmux unixodbc \
+  unzip vim watch watchman watchexec zsh
+
+if [[ $(uname) == "Darwin" ]]; then
+  brew install --cask 1password-cli
+  brew install --cask google-cloud-sdk
+  brew install --cask visual-studio-code
+fi
