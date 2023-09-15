@@ -2,7 +2,7 @@
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
 brew install \
-  asdf autoconf automake coreutils curl git gh jq \
+  asdf autoconf automake coreutils curl git gh gnu-tar gpg jq \
   libtool libxslt libyaml openssl readline tmux unixodbc \
   unzip vim watch watchman watchexec zsh
 
