@@ -1,8 +1,13 @@
-export PATH="/usr/local/share/npm/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
+export PATH="/usr/local/bin:/usr/local/sbin:/usr/bin:/usr/sbin:/bin:/sbin:$PATH"
 
 if [[ $(uname) == "Darwin" ]]; then
-  export PATH="$PATH:/opt/X11/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin"
-  export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools"
+  if [ -d /opt/X11/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin ]; then
+    export PATH="$PATH:/opt/X11/bin:/usr/local/Cellar/smlnj/110.75/libexec/bin"
+  fi
+
+  if [ -d $HOME/Library/Android/sdk ]; then
+    export PATH="$PATH:$HOME/Library/Android/sdk/platform-tools:$HOME/Library/Android/sdk/tools"
+  fi
 fi
 
 export PATH="$HOME/bin:$PATH"
@@ -26,7 +31,7 @@ fi
 ### homebrew
 if [ -d /opt/homebrew ]; then
   export BREW_PREFIX="/opt/homebrew"
-  export PATH="/opt/homebrew/bin:$PATH"
+  export PATH="/opt/homebrew/bin:/opt/homebrew/sbin:$PATH"
 elif [ -d /usr/local/Homebrew ]; then
   export BREW_PREFIX="/usr/local"
   export PATH="/usr/local/bin:$PATH"

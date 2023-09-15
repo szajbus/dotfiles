@@ -12,6 +12,14 @@ if [ -d ~/.mix ]; then
   export PATH="$HOME/.mix/escripts:$PATH"
 fi
 
+### golang
+WHERE_GOLANG=$(asdf where golang 2> /dev/null)
+if [ -n "$WHERE_GOLANG" ]; then
+  export GOPATH="$WHERE_GOLANG/packages"
+  export GOROOT="$WHERE_GOLANG/go"
+  export PATH="$(go env GOPATH)/bin:$PATH"
+fi
+
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/dotfiles/shims:$PATH"
 
