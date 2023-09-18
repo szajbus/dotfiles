@@ -3,7 +3,7 @@
 
 brew install \
   asdf autoconf automake coreutils curl git gh gnu-tar gpg jq \
-  libtool libxslt libyaml openssl readline tmux unixodbc \
+  libtool libxslt libyaml openssl readline tig tmux unixodbc \
   unzip vim watch watchman watchexec zsh
 
 if [[ $(uname) == "Darwin" ]]; then
