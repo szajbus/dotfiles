@@ -13,7 +13,7 @@ setopt pushd_ignore_dups
 setopt pushd_silent
 
 ### enable extended globbing
-setopt extendedglob
+setopt extended_glob
 
 ### functions
 fpath=($HOME/dotfiles/zsh/functions $fpath)
@@ -96,7 +96,7 @@ maybe_source "$BREW_PREFIX/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/com
 ### secrets
 [[ -f $HOME/.secrets ]] && source $HOME/.secrets
 
-if [[ -n $HOME/*/.secrets.*(#qN) ]]; then
+if [[ -n $HOME/.secrets.*(#qN) ]]; then
   for file in $(ls $HOME/.secrets.* 2>/dev/null); do
     source $file
   done
