@@ -17,7 +17,6 @@ GitHub.copilot
 GitHub.github-vscode-theme
 github.vscode-github-actions
 golang.go
-heptio.jsonnet
 ionceflorin.copy-current-file-path
 JakeBecker.elixir-ls
 jetmartin.bats
@@ -33,6 +32,7 @@ ms-python.autopep8
 ms-python.black-formatter
 ms-python.isort
 ms-python.python
+ms-python.vscode-pylance
 ms-toolsai.jupyter
 ms-toolsai.jupyter-keymap
 ms-toolsai.jupyter-renderers
