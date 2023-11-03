@@ -14,9 +14,9 @@ esbenp.prettier-vscode
 florinpatrascu.vscode-elixir-snippets
 ginfuru.ginfuru-vscode-jekyll-syntax
 GitHub.copilot
+GitHub.copilot-chat
 GitHub.github-vscode-theme
 github.vscode-github-actions
-golang.go
 ionceflorin.copy-current-file-path
 JakeBecker.elixir-ls
 jetmartin.bats

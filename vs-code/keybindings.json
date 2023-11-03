@@ -11,6 +11,10 @@
     "when": "explorerViewletFocus"
   },
   {
+    "key": "cmd+shift+e",
+    "command": "workbench.view.explorer"
+  },
+  {
     "key": "cmd+o",
     "command": "-workbench.action.files.openFileFolder"
   },
@@ -58,5 +62,9 @@
   {
     "key": "shift+alt+p",
     "command": "github.copilot.toggleCopilot"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "workbench.view.extension.kubernetesView"
   }
 ]

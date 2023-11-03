@@ -185,10 +185,15 @@
     "vs-kubernetes.crd-code-completion": "disabled",
     "vs-kubernetes.minikube-show-information-expiration": "2024-01-15T09:35:51.361Z"
   },
+  "vscode-kubernetes.log-viewer.destination": "Webview",
+  "vscode-kubernetes.log-viewer.follow": true,
+  "vscode-kubernetes.log-viewer.since": -1,
   "vscode-kubernetes.log-viewer.tail": 1000,
+  "vscode-kubernetes.log-viewer.timestamp": false,
+  "vscode-kubernetes.log-viewer.wrap": true,
   "window.autoDetectColorScheme": true,
   "window.newWindowDimensions": "inherit",
-  "workbench.activityBar.visible": false,
+  "workbench.activityBar.location": "hidden",
   "workbench.colorCustomizations": {
     "[Atom One Light]": {
       "editor.selectionBackground": "#c8c8c8",
@@ -216,13 +221,13 @@
     }
   },
   "workbench.editor.decorations.badges": false,
+  "workbench.editor.empty.hint": "hidden",
   "workbench.editor.labelFormat": "short",
   "workbench.editor.navigationScope": "editorGroup",
   "workbench.editor.pinnedTabSizing": "shrink",
   "workbench.editor.revealIfOpen": true,
   "workbench.editor.tabCloseButton": "left",
   "workbench.editor.titleScrollbarSizing": "large",
-  "workbench.editor.untitled.hint": "hidden",
   "workbench.editorAssociations": {
     "git-rebase-todo": "default"
   },
