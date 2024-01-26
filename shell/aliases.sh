@@ -25,6 +25,8 @@ alias rake="bundle exec rake"
 alias cap="bundle exec cap"
 alias iex-clean="iex --dot-iex \"\""
 alias mtw="mix test.watch"
+alias vvv="source .venv/bin/activate"
+alias nn-prod="export NOMAD_NAMESPACE=prod"
 
 # kubectl
 alias k="kubectl"
