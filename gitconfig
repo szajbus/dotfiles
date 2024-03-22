@@ -40,6 +40,7 @@
   # diff
   d = diff                          # diff unstaged changes
   dc = diff --cached                # diff staged changes
+  dt = difftool                     # use difftool
   last = diff HEAD^                 # diff last committed change
 
   # log
@@ -127,6 +128,13 @@
   # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
   # instead of a/b/c/d as prefixes for patches
   mnemonicprefix = true
+  tool = difftastic
+[difftool]
+  prompt = false
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+[pager]
+  difftool = true
 [rerere]
   # Remember my merges
   # http://gitfu.wordpress.com/2008/04/20/git-rerere-rereremember-what-you-did-last-time/
@@ -135,8 +143,6 @@
   insteadOf = "gh:"
   pushInsteadOf = "git://github.com/"
   pushInsteadOf = "https://github.com/"
-[url "git@github.com:monterail/"]
-  insteadOf = "ghm:"
 [url "git@bitbucket.org:"]
   insteadOf = "bb:"
   pushInsteadOf = "git://bitbucket.org/"

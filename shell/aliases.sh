@@ -10,6 +10,7 @@ alias v="$VISUAL ."
 # git
 alias g="git"
 alias gd="git diff"
+alias gdt="git difftool"
 alias gf="git fetch"
 alias gp="git push"
 alias gpf="git push --force-with-lease"
