@@ -16,6 +16,7 @@ alias gp="git push"
 alias gpf="git push --force-with-lease"
 alias gpff="git push --force"
 alias gpl="git pull"
+alias gr="git recent"
 alias gs="git status"
 
 # dev
