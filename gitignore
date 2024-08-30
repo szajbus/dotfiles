@@ -38,3 +38,4 @@ __pycache__
 .venv
 venv
 *.egg-info
+**/*.pyc
