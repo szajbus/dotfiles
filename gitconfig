@@ -90,6 +90,9 @@
 
   # release
   release = "!f() { git push --force origin HEAD:$1; }; f"
+
+  # make WIP commit
+  wip = "!f() { git add .; git commit -m WIP; }; f"
 [format]
   pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
 [mergetool]
