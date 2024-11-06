@@ -87,6 +87,7 @@
 
   # tag
   t = tag -n                        # show tags with <n> lines of each tag message
+  retag = "!f() { git tag --delete $1; git push origin --delete $1; git tag $1; git push --tags; }; f"
 
   # release
   release = "!f() { git push --force origin HEAD:$1; }; f"
