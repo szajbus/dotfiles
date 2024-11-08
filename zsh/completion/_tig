@@ -1,0 +1,31 @@
+#compdef tig
+
+# Function to get git branches
+_git_branches() {
+    local -a branches
+    branches=(${(f)"$(git branch --format='%(refname:short)')"})
+    _describe 'branches' branches
+}
+
+# Main completion function
+_tig() {
+    local curcontext="$curcontext" state line
+    typeset -A opt_args
+
+    _arguments -C \
+        '1: :->first_arg' \
+        '*: :->rest'
+
+    case $state in
+        first_arg)
+            _alternative \
+                'branches::_git_branches' \
+                'files:file:_files'
+            ;;
+        rest)
+            _files
+            ;;
+    esac
+}
+
+_tig "$@"
