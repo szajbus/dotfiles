@@ -47,8 +47,8 @@
   # log
   l = log --oneline --decorate --graph --all -30
   ll = log --oneline --decorate --graph --all
-  changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
-  short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
+  changes = log --pretty=format:\"%C(yellow)%h%C(reset) %C(blue)%cr%C(reset) %C(green)%cn%C(reset) %s\" --name-status
+  short = log --pretty=format:\"%C(yellow)%h%C(reset) %C(blue)%cr%C(reset) %C(green)%cn%C(reset) %s\"
   changelog = log --pretty=format:\" * %s\"
   shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
 
