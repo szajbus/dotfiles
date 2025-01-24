@@ -29,7 +29,7 @@ alias iex-clean="iex --dot-iex \"\""
 alias mtw="mix test.watch"
 alias vvv="source .venv/bin/activate"
 alias nn-prod="export NOMAD_NAMESPACE=prod"
-alias ww="watchexec --exts=ex,exs,heex --stop-timeout=0s --restart -- "
+alias ww="watchexec --exts=ex,exs,heex --stop-timeout=0s --restart --shell=none -- "
 
 # kubectl
 alias k="kubectl"
