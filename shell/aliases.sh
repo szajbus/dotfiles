@@ -1,11 +1,18 @@
 # system
 alias grep="grep --color"
-alias l="ls -GFalh"
-alias ll="ls -GFalh"
-alias ls="ls -GF"
 alias mkdir="mkdir -p"
 alias e="$EDITOR"
 alias v="$VISUAL ."
+
+if is_busybox; then
+  alias l="ls -Falh"
+  alias ll="ls -Falh"
+  alias ls="ls -F"
+else
+  alias l="ls -GFalh"
+  alias ll="ls -GFalh"
+  alias ls="ls -GF"
+fi
 
 # git
 alias g="git"

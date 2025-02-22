@@ -2,7 +2,12 @@ maybe_source () {
   [[ -f $1 ]] && source $1
 }
 
+is_busybox () {
+  command -v busybox >/dev/null
+}
+
 export -f maybe_source
+export -f is_busybox
 
 source $HOME/dotfiles/shell/rc.sh
 source $HOME/dotfiles/bash/prompt.sh

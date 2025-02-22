@@ -54,7 +54,9 @@ fi
 
 export KEYTIMEOUT=1
 
-export GPG_TTY=$(tty)
+if command -v tty >/dev/null; then
+  export GPG_TTY=$(tty)
+fi
 
 ### shims
 for shim in $(ls $HOME/dotfiles/shims); do
