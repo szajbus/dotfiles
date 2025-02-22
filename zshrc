@@ -7,6 +7,10 @@ function maybe_source () {
   [[ -f $1 ]] && source $1
 }
 
+is_busybox () {
+  command -v busybox >/dev/null
+}
+
 ### changing directories
 setopt auto_pushd
 setopt pushd_ignore_dups
