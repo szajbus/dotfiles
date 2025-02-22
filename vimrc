@@ -10,7 +10,9 @@ endif
 set history=1000 "Store lots of :cmdline history
 
 " Syntax highlighting
-syntax on
+if has("syntax")
+  syntax on
+endif
 
 if has('persistent_undo')
   " Keep undo history across sessions

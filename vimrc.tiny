@@ -18,7 +18,9 @@ set encoding=utf-8
 set hidden
 
 " Syntax highlighting
-syntax off
+if has("syntax")
+  syntax off
+endif
 
 " Colorscheme
 if $DARK_MODE
