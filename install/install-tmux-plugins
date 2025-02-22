@@ -1,22 +1,3 @@
 #!/usr/bin/env bash
 
-DEST_PATH="$HOME/.tmux-plugins"
-
-if [[ ! -d "$DEST_PATH" ]]; then
-  mkdir "$DEST_PATH"
-fi
-
-function install_tmux_plugin {
-  local plugin=$1
-  local plugin_name=$(basename "$plugin")
-  local plugin_path="$DEST_PATH/$plugin_name"
-
-  if [[ ! -d "$plugin_path" ]]; then
-    git clone "$plugin" "$plugin_path"
-  else
-    cd "$plugin_path"
-    git pull
-  fi
-}
-
-install_tmux_plugin "https://github.com/tmux-plugins/tmux-yank"
+./${HOME}/dotfiles/bin/install-tmux-plugin "https://github.com/tmux-plugins/tmux-yank"

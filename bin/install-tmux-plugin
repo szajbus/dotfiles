@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Usage:
+#   install-tmux-plugin <git-url>
+
+set -e
+
+DEST_PATH="$HOME/.tmux-plugins"
+
+if [[ ! -d "$DEST_PATH" ]]; then
+  mkdir "$DEST_PATH"
+fi
+
+plugin=$1
+plugin_name=$(basename "$plugin")
+plugin_path="$DEST_PATH/$plugin_name"
+
+if [[ ! -d "$plugin_path" ]]; then
+  git clone "$plugin" "$plugin_path"
+else
+  cd "$plugin_path"
+  git pull
+fi
