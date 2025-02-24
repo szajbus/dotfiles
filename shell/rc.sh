@@ -1,8 +1,7 @@
 source $HOME/dotfiles/shell/aliases.sh
 
 ### asdf
-maybe_source "$BREW_PREFIX/opt/asdf/libexec/asdf.sh"
-maybe_source "$HOME/.asdf/asdf.sh"
+export PATH="$HOME/.asdf/shims:$PATH"
 
 ### erlang
 export ERL_AFLAGS="-kernel shell_history enabled"
