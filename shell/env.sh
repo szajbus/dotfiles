@@ -26,6 +26,10 @@ elif [ -d /usr/local/Homebrew ]; then
   export PATH="/usr/local/bin:$PATH"
 fi
 
+if [ -d $BREW_PREFIX/opt/curl ]; then
+  export PATH="$BREW_PREFIX/opt/curl/bin:$PATH"
+fi
+
 if [[ -n $BREW_PREFIX ]]; then
   export CPATH="$CPATH:$BREW_PREFIX/include"
   export LIBRARY_PATH="$LIBRARY_PATH:$BREW_PREFIX/lib"
