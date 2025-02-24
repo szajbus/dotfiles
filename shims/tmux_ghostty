@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# This shim can be used as command to start ghostty to automatically connect to a tmux session.
+#
+# Add following to ghostty config:
+#
+#   command = ~/dotfiles/shims/tmux_ghostty
+
+PATH="/opt/homebrew/bin:/usr/local/bin:$PATH"
+
+SESSION=$(whoami | tr '.' '_')
+
+tmux has-session -t $SESSION 2>/dev/null
+
+if [ $? -eq 0 ]; then
+  tmux attach-session -t $SESSION
+else
+  tmux new-session -s $SESSION
+fi
