@@ -95,6 +95,7 @@ install-dotfiles secrets .secrets
 
 if [[ $(uname) == "Darwin" ]]; then
   group osx
+  install-dotfiles aerospace.toml .aerospace.toml
   ask-execute-script homebrew
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex

@@ -8,6 +8,7 @@ brew install \
 
 if [[ $(uname) == "Darwin" ]]; then
   brew install --cask 1password-cli
+  brew install --cask ghostty
   brew install --cask google-cloud-sdk
-  brew install --cask visual-studio-code
+  brew install --cask nikitabobko/tap/aerospace
 fi
