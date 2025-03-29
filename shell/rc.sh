@@ -11,6 +11,11 @@ if [ -d ~/.mix ]; then
   export PATH="$HOME/.mix/escripts:$PATH"
 fi
 
+### local
+if [[ -d ~/.local/bin ]]; then
+  export PATH="~/.local/bin:$PATH"
+fi
+
 ### golang
 WHERE_GOLANG=$(asdf where golang 2> /dev/null)
 if [[ $? -eq 0 && -n "$WHERE_GOLANG" ]]; then
