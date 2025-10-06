@@ -56,12 +56,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-  inner.horizontal = [{ monitor."^Built-in Retina Display$" = 8 }, 16]
-  inner.vertical =   [{ monitor."^Built-in Retina Display$" = 8 }, 16]
-  outer.left =       [{ monitor."^Built-in Retina Display$" = 4 }, 16]
-  outer.bottom =     [{ monitor."^Built-in Retina Display$" = 4 }, 16]
-  outer.top =        [{ monitor."^Built-in Retina Display$" = 4 }, 16]
-  outer.right =      [{ monitor."^Built-in Retina Display$" = 4 }, 16]
+  inner.horizontal = [{ monitor."^Built-in Retina Display$" = 4 }, 8]
+  inner.vertical =   [{ monitor."^Built-in Retina Display$" = 4 }, 8]
+  outer.left =       [{ monitor."^Built-in Retina Display$" = 0 }, 0]
+  outer.bottom =     [{ monitor."^Built-in Retina Display$" = 0 }, 0]
+  outer.top =        [{ monitor."^Built-in Retina Display$" = 0 }, 0]
+  outer.right =      [{ monitor."^Built-in Retina Display$" = 0 }, 0]
 
 [workspace-to-monitor-force-assignment]
   1 = 'main'
@@ -185,12 +185,16 @@ automatically-unhide-macos-hidden-apps = false
   run = ["move-node-to-workspace 0"]
 
 [[on-window-detected]]
+  if.app-id="com.tinyspeck.slackmacgap"
+  run = ["move-node-to-workspace 0"]
+
+[[on-window-detected]]
   if.app-id="com.1password.1password"
-  run = ["move-node-to-workspace 7"]
+  run = ["move-node-to-workspace 8"]
 
 [[on-window-detected]]
   if.app-id="com.spotify.client"
-  run = ["move-node-to-workspace 7"]
+  run = ["move-node-to-workspace 8"]
 
 [[on-window-detected]]
   if.app-id="us.zoom.xos"
