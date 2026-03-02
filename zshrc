@@ -105,3 +105,5 @@ if [[ -n $HOME/.secrets.*(#qN) ]]; then
     source $file
   done
 fi
+
+maybe_source "$HOME/.zshrc.local"
