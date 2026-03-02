@@ -36,8 +36,11 @@ alias iex-clean="iex --dot-iex \"\""
 alias mtw="mix test.watch"
 alias vvv="source .venv/bin/activate"
 alias nn-prod="export NOMAD_NAMESPACE=prod"
-alias ww="watchexec --exts=ex,exs,heex --stop-timeout=0s --restart --shell=none -- "
-alias wwt="ww mix test"
+alias wwex="watchexec --exts=ex,exs,heex --stop-timeout=0s --restart --shell=none -- "
+alias wwts="watchexec --exts=ts,tsx --stop-timeout=0s --restart --shell=none -- "
+alias wwext="wwex mix test"
+alias wwtstc="wwts turbo typecheck"
+alias t="pnpm turbo"
 
 # kubectl
 alias k="kubectl"
