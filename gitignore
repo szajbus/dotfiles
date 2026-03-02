@@ -18,6 +18,9 @@ Session.vim
 # VSCode
 .vscode
 
+# Zed
+.zed
+
 # Ruby
 .rvmrc
 .ruby-version
@@ -39,3 +42,6 @@ __pycache__
 venv
 *.egg-info
 **/*.pyc
+
+# Claude
+.claude/*.local.json
