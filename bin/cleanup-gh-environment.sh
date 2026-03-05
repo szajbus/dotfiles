@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+AUTO_CONFIRM=false
+if [[ "$1" == "--yes" ]]; then
+  AUTO_CONFIRM=true
+  shift
+fi
+
 if [[ $# -ne 3 ]]; then
-  echo "Usage: $0 <owner> <repo> <environment>"
+  echo "Usage: $0 [--yes] <owner> <repo> <environment>"
   exit 1
 fi
 
@@ -23,11 +29,13 @@ if [[ -z "$DEPLOYMENT_IDS" ]]; then
 else
   COUNT=$(echo "$DEPLOYMENT_IDS" | wc -l | tr -d ' ')
   echo "⚠ Found ${COUNT} deployments in environment '$ENV_NAME'."
-  read -p "Delete ALL of them? (y/N): " CONFIRM
 
-  if [[ "$CONFIRM" != "y" ]]; then
-    echo "Cancelled."
-    exit 0
+  if [[ "$AUTO_CONFIRM" != true ]]; then
+    read -p "Delete ALL of them? (y/N): " CONFIRM
+    if [[ "$CONFIRM" != "y" ]]; then
+      echo "Cancelled."
+      exit 0
+    fi
   fi
 
   echo "🗑 Deleting deployments..."
