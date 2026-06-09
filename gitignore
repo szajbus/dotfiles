@@ -35,6 +35,7 @@ npm-debug.log*
 .elixir_ls
 erl_crash.dump
 /config/*.secret.exs
+.dexter.db*
 
 # Python
 __pycache__
