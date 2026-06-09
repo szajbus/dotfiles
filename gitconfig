@@ -31,6 +31,7 @@
   ci = commit                       # commit
   amend = commit --amend            # amend your last commit
   append = commit --amend -C HEAD   # append changes to previous commit
+  fixup = "!git add . && git commit --amend -C HEAD"
 
   # checkout
   co = checkout                     # checkout
