@@ -99,7 +99,6 @@ if [[ $(uname) == "Darwin" ]]; then
   ask-execute-script homebrew
   ask-execute-script osx-defaults
   ask-execute-script spotlight-reindex
-  copy-files fonts ~/Library/fonts
 else
   group linux
   install-dotfiles hushlogin .hushlogin
