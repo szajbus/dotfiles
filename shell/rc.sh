@@ -24,6 +24,13 @@ if [[ $? -eq 0 && -n "$WHERE_GOLANG" ]]; then
   export PATH="$(go env GOPATH)/bin:$PATH"
 fi
 
+# pnpm
+export PNPM_HOME="$HOME/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 export PATH="$HOME/dotfiles/bin:$PATH"
 export PATH="$HOME/dotfiles/shims:$PATH"
 
