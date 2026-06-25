@@ -11,6 +11,19 @@ is_busybox () {
   command -v busybox >/dev/null
 }
 
+### PATH — re-assert Homebrew precedence after macOS path_helper
+# shell/env.sh (sourced from ~/.zshenv) puts Homebrew at the front of PATH, but
+# /etc/zprofile then runs path_helper, which rebuilds PATH from /etc/paths and
+# shoves /usr/bin ahead of Homebrew. This breaks e.g. `git` completion, which
+# loads from Homebrew git but would run against the older Apple git. zshrc runs
+# after path_helper, so restore the intended order here. (bash avoids this: it
+# sources env.sh from ~/.bash_profile, which already runs after path_helper.)
+typeset -U path PATH
+if [[ -n $BREW_PREFIX ]]; then
+  path=($BREW_PREFIX/bin $BREW_PREFIX/sbin $path)
+  [[ -d $BREW_PREFIX/opt/curl/bin ]] && path=($BREW_PREFIX/opt/curl/bin $path)
+fi
+
 ### changing directories
 setopt auto_pushd
 setopt pushd_ignore_dups
