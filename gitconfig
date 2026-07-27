@@ -68,6 +68,9 @@
   rc = rebase --continue            # continue rebase
   rs = rebase --skip                # skip rebase
 
+  # rebase + edit to sign commits
+  resign = "!f() { git rebase -i --exec 'git commit --amend --no-edit -S' \"$1\"; }; f"
+
   # remote
   remote = remote -v                # show remotes (verbose)
 
