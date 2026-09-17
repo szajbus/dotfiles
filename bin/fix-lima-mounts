@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HOST_USER="$(whoami)"
+OLD_HOME="/home/${HOST_USER}.guest"
+NEW_HOME="/home/lima.guest"
+
+echo "Host user: $HOST_USER"
+echo "Replacing: $OLD_HOME -> $NEW_HOME"
+echo
+
+for config in "$HOME"/.lima/wm-*/lima.yaml; do
+  [[ -f "$config" ]] || continue
+
+  if ! grep -qF "$OLD_HOME" "$config"; then
+    continue
+  fi
+
+  vm="$(basename "$(dirname "$config")")"
+
+  # Remember whether the VM is currently running.
+  status="$(limactl list --format '{{.Name}} {{.Status}}' |
+    awk -v vm="$vm" '$1 == vm { print $2 }')"
+
+  was_running=false
+  if [[ "$status" == "Running" ]]; then
+    was_running=true
+    echo "Stopping $vm..."
+    limactl stop "$vm"
+  fi
+
+  echo "Patching $config"
+  sed -i.bak "s|${OLD_HOME}|${NEW_HOME}|g" "$config"
+
+  if $was_running; then
+    echo "Starting $vm..."
+    limactl start "$vm"
+  fi
+
+  echo
+done
+
+echo "Done."
+
